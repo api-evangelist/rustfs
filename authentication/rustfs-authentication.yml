@@ -1,0 +1,20 @@
+name: RustFS Authentication
+generated: '2026-10-14'
+method: searched
+source:
+- https://docs.rustfs.com/en/operations/credentials
+- https://docs.rustfs.com/en/security-compliance/iam/sts
+- https://docs.rustfs.com/en/security-compliance/oidc
+schemes:
+- name: AWS Signature Version 4
+  type: http
+  scheme: aws-sigv4
+  description: S3 and admin requests are signed with AWS SigV4 using an access key and secret key; the access key is embedded in the slash-delimited SigV4 credential scope, so RUSTFS_ACCESS_KEY must not contain '/'.
+  credentials: RUSTFS_ACCESS_KEY / RUSTFS_SECRET_KEY (root), plus IAM users and service accounts
+- name: STS temporary credentials
+  type: sts
+  description: Security Token Service (POST / on the S3 port) issues temporary credentials, including AssumeRoleWithWebIdentity for OIDC identity providers.
+- name: OpenID Connect
+  type: openIdConnect
+  description: External OIDC identity providers (for example Keycloak) can be configured for console login and STS.
+notes: The default secret key rustfsadmin is publicly known; internode RPC secret derivation fails closed when it is used.

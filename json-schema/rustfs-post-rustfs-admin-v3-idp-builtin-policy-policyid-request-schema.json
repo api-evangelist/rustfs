@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rustfs/main/json-schema/rustfs-post-rustfs-admin-v3-idp-builtin-policy-policyid-request-schema.json",
+  "title": "PostRustfsAdminV3IdpBuiltinPolicyPolicyidRequest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/rustfs-openapi-generated.yml#/components/schemas/PostRustfsAdminV3IdpBuiltinPolicyPolicyidRequest",
+  "type": "object",
+  "properties": {
+    "policies": {
+      "type": "array",
+      "description": "List of policy names to attach"
+    },
+    "user": {
+      "type": "string",
+      "description": "User name (or use group instead)"
+    },
+    "group": {
+      "type": "string",
+      "description": "Group name (or use user instead)"
+    }
+  },
+  "required": [
+    "policies"
+  ]
+}

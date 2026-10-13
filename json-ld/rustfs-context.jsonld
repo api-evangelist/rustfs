@@ -1,0 +1,90 @@
+{
+  "@context": {
+    "@vocab": "https://rustfs.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rustfs": "https://rustfs.com/schema#",
+    "GetHealthResponse": "rustfs:GetHealthResponse",
+    "status": {
+      "@id": "rustfs:status",
+      "@type": "xsd:string"
+    },
+    "GetInstallRustfsShResponse": "rustfs:GetInstallRustfsShResponse",
+    "script_content": {
+      "@id": "rustfs:script_content",
+      "@type": "xsd:string"
+    },
+    "PostRustfsAdminV3IdpBuiltinPolicyPolicyidRequest": "rustfs:PostRustfsAdminV3IdpBuiltinPolicyPolicyidRequest",
+    "policies": {
+      "@id": "rustfs:policies",
+      "@container": "@list"
+    },
+    "user": {
+      "@id": "rustfs:user",
+      "@type": "xsd:string"
+    },
+    "group": {
+      "@id": "rustfs:group",
+      "@type": "xsd:string"
+    },
+    "GetRustfsAdminV3OidcProvidersResponse": "rustfs:GetRustfsAdminV3OidcProvidersResponse",
+    "providers": {
+      "@id": "rustfs:providers",
+      "@container": "@list"
+    },
+    "PostRustfsAdminV3RebalanceRebalanceidResponse": "rustfs:PostRustfsAdminV3RebalanceRebalanceidResponse",
+    "id": {
+      "@id": "rustfs:id",
+      "@type": "xsd:string"
+    },
+    "PostRustfsAdminV3V3IdRequest": "rustfs:PostRustfsAdminV3V3IdRequest",
+    "recursive": {
+      "@id": "rustfs:recursive",
+      "@type": "xsd:boolean"
+    },
+    "dryRun": {
+      "@id": "rustfs:dryRun",
+      "@type": "xsd:boolean"
+    },
+    "remove": {
+      "@id": "rustfs:remove",
+      "@type": "xsd:boolean"
+    },
+    "recreate": {
+      "@id": "rustfs:recreate",
+      "@type": "xsd:boolean"
+    },
+    "scanMode": {
+      "@id": "rustfs:scanMode",
+      "@type": "xsd:string"
+    },
+    "updateParity": {
+      "@id": "rustfs:updateParity",
+      "@type": "xsd:boolean"
+    },
+    "readRepair": {
+      "@id": "rustfs:readRepair",
+      "@type": "xsd:boolean"
+    },
+    "pool": {
+      "@id": "rustfs:pool",
+      "@type": "xsd:string"
+    },
+    "set": {
+      "@id": "rustfs:set",
+      "@type": "xsd:string"
+    },
+    "PutRustfsAdminV3V3IdRequest": "rustfs:PutRustfsAdminV3V3IdRequest",
+    "policy": {
+      "@id": "rustfs:policy"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "RustFS API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects RustFS's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-14) from openapi/_ae-authored/rustfs-openapi-generated.yml.",
+  "dcterms:created": "2026-10-14",
+  "dcterms:source": [
+    "openapi/_ae-authored/rustfs-openapi-generated.yml"
+  ]
+}

@@ -1,0 +1,1109 @@
+# Docs
+
+- Installation
+  - [Installation](/en/installation): Choose the right RustFS deployment path: local trial, single-node or multi-node production, containers, and Kubernetes.
+  - Requirement
+    - [Topology Selection](/en/installation#deployment-mode-comparison)
+    - [EC Configuration](/en/installation/requirement/ec-configuration): Plan and configure RustFS erasure-set size and parity before deploying storage pools.
+    - [Disk Preparation](/en/installation/requirement/disk-preparation): Identify, format, mount, and verify dedicated data disks before installing RustFS on Linux.
+    - Checklist
+      - [Checklist](/en/installation/requirement/checklists): Pre-installation checklists.
+      - [Hardware Checklist](/en/installation/requirement/checklists/hardware-checklists)
+      - [Hardware Selection](/en/installation/requirement/checklists/hardware-selection)
+      - [Network Checklist](/en/installation/requirement/checklists/network-checklists)
+      - [Software Checklist](/en/installation/requirement/checklists/software-checklists)
+      - [Security Checklist](/en/installation/requirement/checklists/security-checklists)
+  - Linux
+    - [Installing RustFS on Linux](/en/installation/linux): Choose a Linux deployment mode — SNSD, SNMD, or MNMD — and install RustFS on one or more servers.
+    - [Quick Start](/en/installation/linux/quick-start)
+    - [Prerequisites & Service Setup](/en/installation/linux/prerequisites-and-service)
+    - [Single Node Single Disk (SNSD)](/en/installation/linux/single-node-single-disk)
+    - [Single Node Multiple Disk (SNMD)](/en/installation/linux/single-node-multiple-disk)
+    - [Multiple Node Multiple Disk (MNMD)](/en/installation/linux/multiple-node-multiple-disk)
+  - Container
+    - [Container](/en/installation/container): Run the official RustFS container image with Docker or Podman.
+    - [Docker](/en/installation/container/docker): Run RustFS with Docker: single-node setup, host-directory permissions, Docker Compose, TLS, and multi-node deployment.
+    - [Podman](/en/installation/container/podman): Run a single-node RustFS instance with Podman and persistent container storage.
+  - Cloud Native
+    - [Kubernetes Installation (Helm)](/en/installation/cloud-native): Deploy RustFS on Kubernetes with the official Helm chart: standalone or distributed mode, storage sizing, probes, production hardening, and server-pool expansion.
+    - Helm Chart
+      - [Overview](/en/installation/cloud-native/helm-chart): Understand how the RustFS Helm chart deploys standalone and distributed clusters on Kubernetes.
+      - [Install](/en/installation/cloud-native/helm-chart/installation): Install standalone or distributed RustFS on Kubernetes with the official Helm chart.
+      - [mTLS](/en/installation/cloud-native/helm-chart/mtls): Configure mutual TLS between RustFS Pods deployed by the Helm chart.
+      - [cert-manager](/en/installation/cloud-native/helm-chart/cert-manager): Use cert-manager to issue and renew TLS certificates for a RustFS Helm deployment.
+    - Operator
+      - [Overview](/en/installation/cloud-native/operator): Understand how RustFS Operator manages RustFS clusters on Kubernetes.
+      - [Install](/en/installation/cloud-native/operator/installation): Prepare Kubernetes, install RustFS Operator, and access its Console securely.
+      - [Multi-Tenant](/en/installation/cloud-native/operator/tenant): Create isolated RustFS Tenants and access their S3 API and Console services.
+      - [Pool Expansion](/en/installation/cloud-native/operator/pool-expansion): Add storage capacity to a RustFS Tenant by appending a storage pool.
+      - [KMS Integration](/en/installation/cloud-native/operator/kms): Configure local or HashiCorp Vault key management for a RustFS Tenant through the Operator encryption API.
+  - [Windows](/en/installation/windows)
+  - [macOS](/en/installation/macos)
+- Administration
+  - [Administration](/en/administration): Administer RustFS data, access protocols, and browser-based management.
+  - [Console](/en/administration/console)
+  - Data Management
+    - Object
+      - [Object Creation](/en/administration/data/object/creation): Create objects using the RustFS UI, rc, or the S3 API.
+      - [Object Deletion](/en/administration/data/object/deletion): Delete objects using the RustFS UI, rc, or the S3 API.
+      - [Object Lock](/en/administration/data/object/object-lock): Protect versioned objects from deletion with retention periods and legal holds.
+      - [Versioning](/en/administration/data/object/versioning): Enable bucket versioning, recover earlier object versions, and manage delete markers with rc and the Console.
+      - [Multipart Upload](/en/administration/data/object/multipart-upload): Upload large objects in parts, monitor Console upload tasks, and verify completed objects with rc.
+      - [Object Scanning](/en/administration/data/object/scanner): Guide to the RustFS object scanner, including design, implementation, and monitoring.
+    - Bucket
+      - [RustFS Bucket Creation](/en/administration/data/bucket/creation): Create buckets using the RustFS UI, rc, or the S3 API.
+      - [RustFS Bucket Deletion](/en/administration/data/bucket/deletion): Delete buckets using the RustFS UI, rc, or the S3 API.
+      - [Bucket Quota](/en/administration/data/bucket/quota): Configure, inspect, and verify hard storage quotas for individual RustFS buckets.
+      - [Bucket Replication](/en/administration/data/bucket/replication): Configure, validate, and monitor asynchronous replication between versioned RustFS buckets.
+      - [Bucket Policy](/en/administration/data/bucket/policy): Create, apply, inspect, and verify RustFS bucket policies with the S3 API.
+    - [S3 Tables](/en/administration/data/s3-tables): Enable a RustFS table bucket and connect Iceberg clients to the built-in REST catalog.
+    - [Tiered Storage](/en/administration/data/tiered-storage): Configure lifecycle-driven object transitions from RustFS to a remote storage tier.
+    - [Lifecycle Management](/en/administration/data/lifecycle-management): Configure, inspect, and maintain RustFS object lifecycle rules with the rc command-line client.
+  - Protocol Support
+    - [S3](/en/administration/protocols/s3): Configure and use the RustFS S3-compatible API with AWS CLI, AWS SDKs, and other S3 clients.
+    - [WebDAV](/en/administration/protocols/webdav): Configure the RustFS WebDAV gateway and access buckets and objects with WebDAV clients.
+    - [FTP(S)](/en/administration/protocols/ftps): Configure the RustFS FTP or FTPS gateway and manage buckets and objects with FTP clients.
+    - [SFTP](/en/administration/protocols/sftp): Build, configure, and use the RustFS SFTP gateway to access buckets and objects with SFTP clients.
+    - [OpenStack Swift](/en/administration/protocols/swift): Build RustFS with the optional Swift API and connect it to OpenStack Keystone authentication.
+    - [MCP Server](/en/developer/mcp)
+  - CORS Configuration
+    - [CORS Configuration](/en/administration/cors): Configure allowed browser origins for the RustFS S3 API and Console.
+  - [Virtual-Host Access](/en/integration/virtual)
+- Security & Compliance
+  - [Security & Compliance](/en/security-compliance): Configure identity, encryption, transport security, audit logging, and credentials for RustFS.
+  - IAM
+    - [RustFS IAM Management](/en/security-compliance/iam): Overview of RustFS Identity and Access Management (IAM): identity types, policy attachment, and policy evaluation semantics.
+    - [Users, Groups, and Policies](/en/security-compliance/iam/policies)
+    - [Service Accounts and STS](/en/security-compliance/iam/sts)
+    - [Access Keys](/en/security-compliance/iam/access-token)
+  - Data Encryption
+    - [Data Encryption](/en/security-compliance/encryption): Find the verified RustFS server-side encryption and key management references.
+    - [SSE-S3](/en/security-compliance/encryption/sse-s): Configure server-managed SSE-S3 encryption for RustFS buckets and object writes.
+    - [SSE-C](/en/security-compliance/encryption/sse-c): Use customer-provided AES-256 keys for RustFS object encryption and decryption.
+    - [SSE-KMS](/en/security-compliance/encryption/kms): Configure SSE-KMS with a local or HashiCorp Vault KMS backend for RustFS.
+  - OIDC
+    - [OIDC](/en/security-compliance/oidc): Understand how RustFS uses OpenID Connect providers for Console single sign-on.
+    - [Keycloak](/en/security-compliance/oidc/keycloak): Configure Keycloak as an OpenID Connect identity provider for RustFS Console single sign-on.
+    - [GitLab](/en/security-compliance/oidc/gitlab): Configure GitLab as an OpenID Connect identity provider for RustFS Console single sign-on.
+  - [TLS Configuration](/en/integration/tls-configured)
+  - [Audit Targets](/en/security-compliance/audit-logs): Configure RustFS audit targets and deliver request-level audit records to external systems.
+  - [Credential Management](/en/operations/credentials)
+- Operations & Observability
+  - [Operations & Observability](/en/operations): Operate, monitor, scale, upgrade, and troubleshoot RustFS deployments.
+  - [CLI Client (rc)](/en/operations/rc): Install the RustFS command-line client and use it to connect to and inspect a RustFS cluster.
+  - Upgrade
+    - [Upgrade](/en/operations/upgrade): Plan and perform RustFS upgrades while preserving cluster availability.
+    - [Binary](/en/operations/upgrade/binary)
+    - [Container](/en/operations/upgrade/container)
+    - [Kubernetes](/en/operations/upgrade/kubernetes)
+  - Scaling
+    - [Scaling](/en/operations/scaling): Expand, rebalance, and retire RustFS storage pools.
+    - [Pool Expansion](/en/operations/scaling/storage-pool-expansion): Add a storage pool to a RustFS cluster and verify the expanded topology through the Console or rc.
+    - [Rebalancing](/en/operations/scaling/data-rebalancing): Redistribute existing objects across active RustFS storage pools through the Console or rc.
+    - [Pool Decommission](/en/operations/scaling/storage-pool-decommission): Drain and retire a RustFS storage pool through the Console or rc, then verify that its data was relocated.
+  - High Availability
+    - [High Availability](/en/operations/high-availability): Review RustFS site replication and node recovery guidance.
+    - [Site Replication](/en/operations/high-availability/site-replication): Configure and operate multi-site RustFS replication with the rc command-line client.
+    - [Node Healing](/en/operations/high-availability/node-healing): Recover failed RustFS nodes and disks, monitor automatic healing, and run bounded manual heal tasks with rc.
+  - [Cluster Lifecycle Operations](/en/operations/cluster-lifecycle): Plan, start, expand, rebalance, decommission, heal, and restart erasure-coded RustFS clusters with verified quorum and storage-class behavior.
+  - [Observability](/en/operations/observability): This article explains RustFS telemetry exports, monitoring integrations, metric names and labels, recommended alerts, and log collection.
+  - [Status Check](/en/operations/status-check): Check RustFS network access, health endpoints, cluster status, and storage capacity.
+  - [Event Notifications](/en/operations/event-notifications): Configure RustFS bucket event notifications and deliver filtered object events to external targets.
+- Troubleshooting
+  - [Troubleshooting](/en/troubleshooting): Diagnose and resolve RustFS issues.
+  - [Hard Drive Failures](/en/troubleshooting/driver): RustFS ensures read/write access can still be provided when some disks fail through mechanisms similar to erasure coding, and automatically heals data after replacing disks.
+  - [Node Failures](/en/troubleshooting/node): Complete steps for handling node failures in RustFS clusters. Mainly includes: replacement node hardware preparation, configuration updates, service deployment, rejoining the cluster, data healing, and subsequent checks and best practices.
+- Developer
+  - [Developer](/en/developer): Integrate applications with RustFS by using STS, MCP, SDKs, and the S3-compatible API.
+  - SDK
+    - [RustFS SDK Overview](/en/developer/sdk): Overview of supported S3 SDKs for RustFS.
+    - [Java](/en/developer/sdk/java)
+    - [Python](/en/developer/sdk/python)
+    - [Rust](/en/developer/sdk/rust)
+    - [JavaScript](/en/developer/sdk/javascript)
+    - [TypeScript](/en/developer/sdk/typescript)
+    - [Golang](/en/developer/sdk/go)
+    - [Other SDKs](/en/developer/sdk/other)
+  - Integration
+    - [Integration](/en/developer/integration): Integrate RustFS with reverse proxies, backup tools, databases, big data and storage systems, AI and cloud native platforms, observability platforms, container registries, and DevOps tooling.
+    - Reverse Proxy
+      - [Reverse Proxy](/en/developer/integration/reverse-proxy): Choose and configure a reverse proxy for the RustFS S3 API and Console.
+      - [Nginx](/en/developer/integration/reverse-proxy/nginx): Deploy RustFS behind Nginx with separate HTTPS endpoints for the S3 API and Console.
+      - [Traefik](/en/developer/integration/reverse-proxy/traefik): Deploy RustFS behind Traefik with automatic TLS for separate S3 API and Console hostnames.
+      - [Caddy](/en/developer/integration/reverse-proxy/caddy): Deploy RustFS behind Caddy with automatic HTTPS for separate S3 API and Console hostnames.
+      - [Envoy](/en/developer/integration/reverse-proxy/envoy): Deploy RustFS behind Envoy with TLS-terminated routes for the S3 API and Console.
+      - [HAProxy](/en/developer/integration/reverse-proxy/haproxy): Deploy RustFS behind HAProxy with separate HTTPS routes for the S3 API and Console.
+      - [Apache HTTP Server](/en/developer/integration/reverse-proxy/httpd): Deploy RustFS behind Apache HTTP Server with TLS termination for separate S3 API and Console hostnames.
+    - Backup
+      - [Backup](/en/developer/integration/backup): Connect backup tools to RustFS through S3-compatible object storage interfaces.
+      - [Kopia](/en/developer/integration/backup/kopia): Back up files to RustFS with Kopia's S3 repository backend.
+      - [Longhorn](/en/developer/integration/backup/longhorn): Configure Longhorn to store Kubernetes volume backups in RustFS through its S3 backup target.
+      - [Restic](/en/developer/integration/backup/restic): Back up local data to RustFS with Restic and restore snapshots from an S3-compatible repository.
+      - [Velero](/en/developer/integration/backup/velero): Back up Kubernetes cluster resources to RustFS with Velero's AWS object store provider.
+    - Database
+      - [Database](/en/developer/integration/database): Connect databases to RustFS through S3-compatible object storage interfaces.
+      - [ClickHouse](/en/developer/integration/database/clickhouse): Run ClickHouse with an S3 disk backed by RustFS for MergeTree table data.
+      - [Apache Doris](/en/developer/integration/database/doris): Back up Apache Doris tables to RustFS through an S3 repository and restore them.
+      - [DuckDB](/en/developer/integration/database/duckdb): Query and write Parquet files stored in RustFS object storage with DuckDB and its httpfs extension, deployed with Docker Compose.
+      - [InfluxDB](/en/developer/integration/database/influxdb): Run InfluxDB 3 Core with RustFS as its S3 object store, deployed with Docker Compose.
+      - [Databend](/en/developer/integration/database/databend): Run Databend with RustFS as the S3-compatible storage backend.
+      - [LanceDB](/en/developer/integration/database/lancedb): Store and query LanceDB vector tables directly on RustFS.
+      - [Milvus](/en/developer/integration/database/milvus): Run Milvus with RustFS as its S3-compatible object storage backend using Docker Compose.
+      - [Trino](/en/developer/integration/database/trino): Query CSV and Parquet data stored in RustFS object storage with Trino and the hive connector's file metastore.
+      - [Vitess](/en/developer/integration/database/vitess): Back up Vitess to RustFS through the S3 backup storage implementation.
+    - Big Data
+      - [Big Data](/en/developer/integration/big-data): Connect big data systems to RustFS through S3-compatible object storage interfaces.
+      - [Airflow](/en/developer/integration/big-data/airflow): Move data between Airflow DAGs and RustFS with the Amazon S3 provider.
+      - [DolphinScheduler](/en/developer/integration/big-data/dolphinscheduler): Store DolphinScheduler resources on RustFS over S3.
+      - [Delta Lake](/en/developer/integration/big-data/delta-lake): Write and read Delta tables on RustFS with delta-rs.
+      - [Apache Flink](/en/developer/integration/big-data/flink): Read from and write CSV data stored in RustFS object storage with Apache Flink and its S3 filesystem plugin.
+      - [Hive](/en/developer/integration/big-data/hive): Store Hive table data on RustFS over S3A.
+      - [Apache Hudi](/en/developer/integration/big-data/hudi): Write Apache Hudi tables to RustFS through Spark and the s3a connector.
+      - [Paimon](/en/developer/integration/big-data/paimon): Run Paimon lakehouse tables on RustFS with Spark.
+      - [Apache Iceberg](/en/developer/integration/big-data/iceberg): Run Apache Iceberg with Spark, a REST catalog, and RustFS object storage using Docker Compose.
+      - [Kafka](/en/developer/integration/big-data/kafka): Offload Kafka topic data to RustFS with the Kafka Connect S3 sink connector.
+      - [AutoMQ](/en/developer/integration/big-data/automq): Run AutoMQ with RustFS as the S3-backed log storage.
+      - [PyIceberg](/en/developer/integration/big-data/pyiceberg): Create, write, and read an Iceberg table through the RustFS S3 Tables REST catalog with PyIceberg.
+      - [Apache Spark](/en/developer/integration/big-data/spark): Read and write Parquet data stored in RustFS object storage with Apache Spark over the s3a connector.
+      - [SeaTunnel](/en/developer/integration/big-data/seatunnel): Move data between SeaTunnel and RustFS with the S3File connector.
+      - [Apache Zeppelin](/en/developer/integration/big-data/zeppelin): Store Apache Zeppelin notebooks in RustFS through the S3 notebook repository.
+    - Storage
+      - [Storage](/en/developer/integration/storage): Use RustFS as the S3 backend for storage systems and storage gateways.
+      - [lakeFS](/en/developer/integration/storage/lakefs): Run lakeFS with RustFS as its S3 blockstore for versioned data lakes.
+      - [OpenDAL](/en/developer/integration/storage/opendal): Access RustFS objects from applications through the Apache OpenDAL data access layer.
+      - [ZeroFS](/en/developer/integration/storage/zerofs): Serve a RustFS bucket as a POSIX filesystem over NFS with ZeroFS.
+      - [Alluxio](/en/developer/integration/storage/alluxio): Cache RustFS buckets with Alluxio for faster reads.
+      - [SFTPGo](/en/developer/integration/storage/sftpgo): Serve RustFS buckets over SFTP with SFTPGo.
+      - [s3fs](/en/developer/integration/storage/s3fs): Mount a RustFS bucket as a local filesystem with s3fs-fuse.
+    - AI
+      - [AI](/en/developer/integration/ai): Connect AI platforms to RustFS through S3-compatible object storage interfaces.
+      - [MLflow](/en/developer/integration/ai/mlflow): Run MLflow with RustFS as the S3 artifact store for experiment tracking, deployed with Docker Compose.
+      - [Ray](/en/developer/integration/ai/ray): Use Ray Data with RustFS as S3-compatible storage for dataset writes and reads.
+      - [vLLM](/en/developer/integration/ai/vllm): Serve LLM inference with vLLM loading model weights stored in RustFS.
+    - Cloud Native
+      - [Cloud Native](/en/developer/integration/cloud-native): Connect cloud native platforms to RustFS through S3-compatible object storage interfaces.
+      - [Cortex](/en/developer/integration/cloud-native/cortex): Run Cortex with RustFS as the S3-compatible blocks, ruler, and alertmanager storage backend.
+      - [Flux](/en/developer/integration/cloud-native/flux): Deliver Kubernetes manifests to Flux CD from RustFS through the Bucket source API.
+      - [celld](/en/developer/integration/cloud-native/celld): Run denoland celld — self-hosted Durable Objects — with fleet state on RustFS.
+    - Observability
+      - [Observability](/en/developer/integration/observability): Connect observability platforms to RustFS through S3-compatible object storage interfaces.
+      - [Fluentd](/en/developer/integration/observability/fluentd): Ship Fluentd log events to RustFS with the S3 output plugin.
+      - [GreptimeDB](/en/developer/integration/observability/greptimedb): Run GreptimeDB with RustFS as the S3-compatible object storage backend.
+      - [Loki](/en/developer/integration/observability/loki): Run Grafana Loki with RustFS as its S3 object storage backend, deployed with Docker Compose.
+      - [OpenObserve](/en/developer/integration/observability/openobserve): Run OpenObserve with RustFS as its S3-compatible object storage backend using Docker Compose, and verify log ingestion, storage, and search.
+      - [OpenTelemetry](/en/developer/integration/observability/opentelemetry): Export OpenTelemetry Collector logs to RustFS with the AWS S3 exporter.
+      - [Tempo](/en/developer/integration/observability/tempo): Run Grafana Tempo with RustFS as its S3 trace storage backend, deployed with Docker Compose.
+      - [Thanos](/en/developer/integration/observability/thanos): Run Thanos with RustFS as the S3 object storage backend for Prometheus blocks, deployed with Docker Compose.
+      - [VictoriaMetrics](/en/developer/integration/observability/victoriametrics): Back up VictoriaMetrics snapshots to RustFS with vmbackup.
+    - Others
+      - [Others](/en/developer/integration/others): Additional RustFS integrations, currently the community-driven capo SDK for Python.
+      - [capo (Python)](/en/developer/integration/others/capo): Connect capo to RustFS and perform basic object operations from Python with synchronous or asynchronous clients.
+      - [JuiceFS](/en/developer/integration/others/juicefs): Build a POSIX filesystem on RustFS with JuiceFS S3 object storage.
+      - [Nextcloud](/en/developer/integration/others/nextcloud): Use RustFS as S3 external storage for Nextcloud files.
+      - [rclone](/en/developer/integration/others/rclone): Sync, mount, and serve RustFS buckets with rclone over its S3-compatible API.
+      - [tusd](/en/developer/integration/others/tusd): Receive resumable uploads into RustFS with the tusd server's S3 backend.
+    - Registry
+      - [Registry](/en/developer/integration/registry): Connect container registries to RustFS through S3-compatible object storage interfaces.
+      - [Harbor](/en/developer/integration/registry/harbor): Store container images pushed to Harbor in RustFS object storage through the registry S3 storage driver, deployed with Docker Compose.
+      - [Docker Registry](/en/developer/integration/registry/docker-registry): Store container images from Docker Registry in RustFS.
+    - DevOps
+      - [DevOps](/en/developer/integration/devops): Connect DevOps platforms and infrastructure tooling to RustFS through S3-compatible object storage interfaces.
+      - [Elasticsearch](/en/developer/integration/devops/elasticsearch): Use RustFS as the S3 snapshot repository for Elasticsearch indices, deployed with Docker Compose.
+      - [OpenSearch](/en/developer/integration/devops/opensearch): Snapshot OpenSearch indices to RustFS with the repository-s3 plugin.
+      - [Gitea](/en/developer/integration/devops/gitea): Run Gitea with RustFS as the S3 storage backend for LFS objects and attachments, deployed with Docker Compose.
+      - [Jenkins](/en/developer/integration/devops/jenkins): Store Jenkins build artifacts in RustFS with the Artifact Manager on S3 plugin.
+      - [Terraform](/en/developer/integration/devops/terraform): Store Terraform state in RustFS object storage with the S3 backend, including state locking.
+  - [RustFS Open Source License](/en/developer/license): RustFS is released under the Apache 2.0 license.
+- Reference
+  - [Reference](/en/reference): Look up RustFS configuration variables and command-line options.
+  - [Environment Variables](/en/reference/environment-variables): Reference for the environment variables that configure the RustFS server, console, TLS, KMS, observability, scanner, healing, storage classes, credentials, and event targets.
+  - [CLI Reference](/en/reference/cli): Reference for the rustfs subcommands, server flags, environment variable equivalents, and volume path syntax.
+  - [S3 Compatibility Matrix](/en/reference/s3-compatibility): Review the tested and intentionally excluded Amazon S3 behavior in the current RustFS compatibility gate.
+
+# Docs
+
+- 安装
+  - [安装](/zh/installation): 根据本地试用、单节点或多节点生产环境、容器及 Kubernetes 场景选择合适的 RustFS 部署方式。
+  - 环境要求
+    - [拓扑选择](/zh/installation#deployment-mode-comparison)
+    - [EC 配置](/zh/installation/requirement/ec-configuration): 部署存储池前，规划并配置 RustFS 纠删集大小和校验分片数。
+    - [磁盘准备](/zh/installation/requirement/disk-preparation): 在 Linux 上安装 RustFS 前，识别、格式化、挂载并验证专用数据盘。
+    - 检查清单
+      - [检查清单](/zh/installation/requirement/checklists): 安装前检查清单。
+      - [硬件检查清单](/zh/installation/requirement/checklists/hardware-checklists)
+      - [硬件选型](/zh/installation/requirement/checklists/hardware-selection)
+      - [网络检查清单](/zh/installation/requirement/checklists/network-checklists)
+      - [软件检查清单](/zh/installation/requirement/checklists/software-checklists)
+      - [安全检查清单](/zh/installation/requirement/checklists/security-checklists)
+  - Linux
+    - [在 Linux 上安装 RustFS](/zh/installation/linux): 选择 SNSD、SNMD 或 MNMD Linux 部署模式，并在一台或多台服务器上安装 RustFS。
+    - [快速开始](/zh/installation/linux/quick-start)
+    - [前提条件与服务配置](/zh/installation/linux/prerequisites-and-service)
+    - [单节点单磁盘 (SNSD)](/zh/installation/linux/single-node-single-disk)
+    - [单节点多磁盘 (SNMD)](/zh/installation/linux/single-node-multiple-disk)
+    - [多节点多磁盘 (MNMD)](/zh/installation/linux/multiple-node-multiple-disk)
+  - 容器
+    - [容器](/zh/installation/container): 使用 Docker 或 Podman 运行官方 RustFS 容器镜像。
+    - [Docker](/zh/installation/container/docker): 使用 Docker 运行 RustFS：单节点部署、主机目录权限、Docker Compose、TLS 和多节点部署。
+    - [Podman](/zh/installation/container/podman): 使用 Podman 和持久化容器存储运行单节点 RustFS 实例。
+  - 云原生
+    - [Kubernetes 安装（Helm）](/zh/installation/cloud-native): 使用官方 Helm chart 在 Kubernetes 上部署 RustFS：单机或分布式模式、存储容量规划、探针、生产环境加固和服务器池扩容。
+    - Helm Chart
+      - [概述](/zh/installation/cloud-native/helm-chart): 了解 RustFS Helm chart 如何在 Kubernetes 上部署单机和分布式集群。
+      - [安装](/zh/installation/cloud-native/helm-chart/installation): 使用官方 Helm chart 在 Kubernetes 上安装单机或分布式 RustFS。
+      - [mTLS](/zh/installation/cloud-native/helm-chart/mtls): 为 Helm chart 部署的 RustFS Pod 配置双向 TLS。
+      - [cert-manager](/zh/installation/cloud-native/helm-chart/cert-manager): 使用 cert-manager 为 RustFS Helm 部署签发和续订 TLS 证书。
+    - Operator
+      - [概述](/zh/installation/cloud-native/operator): 了解 RustFS Operator 如何在 Kubernetes 上管理 RustFS 集群。
+      - [安装](/zh/installation/cloud-native/operator/installation): 准备 Kubernetes、安装 RustFS Operator 并安全访问其控制台。
+      - [多租户](/zh/installation/cloud-native/operator/tenant): 创建相互隔离的 RustFS Tenant，并访问其 S3 API 和控制台服务。
+      - [存储池扩容](/zh/installation/cloud-native/operator/pool-expansion): 通过追加存储池增加 RustFS Tenant 的存储容量。
+      - [KMS 集成](/zh/installation/cloud-native/operator/kms): 通过 Operator 加密 API 为 RustFS Tenant 配置本地或 HashiCorp Vault 密钥管理。
+  - [Windows](/zh/installation/windows)
+  - [macOS](/zh/installation/macos)
+- 管理
+  - [管理](/zh/administration): 管理 RustFS 数据、访问协议和基于浏览器的管理功能。
+  - [控制台](/zh/administration/console)
+  - 数据管理
+    - 对象
+      - [创建对象](/zh/administration/data/object/creation): 使用 RustFS UI、rc 或 S3 API 创建对象。
+      - [删除对象](/zh/administration/data/object/deletion): 使用 RustFS UI、rc 或 S3 API 删除对象。
+      - [对象锁定](/zh/administration/data/object/object-lock): 使用保留期和依法保留来保护已启用版本控制的对象免遭删除。
+      - [版本控制](/zh/administration/data/object/versioning): 使用 rc 和控制台启用存储桶版本控制、恢复早期对象版本并管理删除标记。
+      - [分段上传](/zh/administration/data/object/multipart-upload): 分段上传大型对象、监控控制台上传任务，并使用 rc 验证已完成的对象。
+      - [对象扫描](/zh/administration/data/object/scanner): 介绍 RustFS 对象扫描器的设计、实现和监控。
+    - 存储桶
+      - [创建 RustFS 存储桶](/zh/administration/data/bucket/creation): 使用 RustFS UI、rc 或 S3 API 创建存储桶。
+      - [删除 RustFS 存储桶](/zh/administration/data/bucket/deletion): 使用 RustFS UI、rc 或 S3 API 删除存储桶。
+      - [存储桶配额](/zh/administration/data/bucket/quota): 为单个 RustFS 存储桶配置、检查和验证硬存储配额。
+      - [存储桶复制](/zh/administration/data/bucket/replication): 配置、验证和监控已启用版本控制的 RustFS 存储桶之间的异步复制。
+      - [存储桶策略](/zh/administration/data/bucket/policy): 使用 S3 API 创建、应用、检查和验证 RustFS 存储桶策略。
+    - [S3 Tables](/zh/administration/data/s3-tables): 启用 RustFS 表存储桶，并将 Iceberg 客户端连接到内置 REST 目录。
+    - [分层存储](/zh/administration/data/tiered-storage): 配置由生命周期驱动的对象转换，将对象从 RustFS 转移到远程存储层。
+    - [生命周期管理](/zh/administration/data/lifecycle-management): 使用 rc 命令行客户端配置、检查和维护 RustFS 对象生命周期规则。
+  - 协议支持
+    - [S3](/zh/administration/protocols/s3): 配置并使用 RustFS S3 兼容 API，以及 AWS CLI、AWS SDK 和其他 S3 客户端。
+    - [WebDAV](/zh/administration/protocols/webdav): 配置 RustFS WebDAV 网关，并使用 WebDAV 客户端访问存储桶和对象。
+    - [FTP(S)](/zh/administration/protocols/ftps): 配置 RustFS FTP 或 FTPS 网关，并使用 FTP 客户端管理存储桶和对象。
+    - [SFTP](/zh/administration/protocols/sftp): 构建、配置并使用 RustFS SFTP 网关，通过 SFTP 客户端访问存储桶和对象。
+    - [OpenStack Swift API](/zh/administration/protocols/swift): 构建包含可选 Swift API 的 RustFS，并接入 OpenStack Keystone 身份验证。
+    - [MCP 服务器](/zh/developer/mcp)
+  - CORS 配置
+    - [CORS 配置](/zh/administration/cors): 为 RustFS S3 API 和控制台配置允许的浏览器来源。
+  - [虚拟主机访问](/zh/integration/virtual)
+- 安全与合规
+  - [安全与合规](/zh/security-compliance): 为 RustFS 配置身份、加密、传输安全、审计日志和凭证。
+  - IAM
+    - [RustFS IAM 管理](/zh/security-compliance/iam): 概述 RustFS 身份与访问管理（IAM）的身份类型、策略附加方式和策略评估语义。
+    - [用户、用户组和策略](/zh/security-compliance/iam/policies)
+    - [服务账户和 STS](/zh/security-compliance/iam/sts)
+    - [访问密钥](/zh/security-compliance/iam/access-token)
+  - 数据加密
+    - [数据加密](/zh/security-compliance/encryption): 查阅经过验证的 RustFS 服务端加密和密钥管理参考资料。
+    - [SSE-S3](/zh/security-compliance/encryption/sse-s): 为 RustFS 存储桶和对象写入配置由服务器管理的 SSE-S3 加密。
+    - [SSE-C](/zh/security-compliance/encryption/sse-c): 使用客户提供的 AES-256 密钥对 RustFS 对象进行加密和解密。
+    - [SSE-KMS](/zh/security-compliance/encryption/kms): 使用本地或 HashiCorp Vault KMS 后端为 RustFS 配置 SSE-KMS。
+  - OIDC
+    - [OIDC](/zh/security-compliance/oidc): 了解 RustFS 如何使用 OpenID Connect 提供商实现控制台单点登录。
+    - [Keycloak](/zh/security-compliance/oidc/keycloak): 将 Keycloak 配置为 OpenID Connect 身份提供商，实现 RustFS 控制台单点登录。
+    - [GitLab](/zh/security-compliance/oidc/gitlab): 将 GitLab 配置为 OpenID Connect 身份提供商，实现 RustFS 控制台单点登录。
+  - [TLS 配置](/zh/integration/tls-configured)
+  - [审计目标](/zh/security-compliance/audit-logs): 配置 RustFS 审计目标，并将请求级审计记录投递到外部系统。
+  - [凭证管理](/zh/operations/credentials)
+- 运维与可观测性
+  - [运维与可观测性](/zh/operations): 运维、监控、扩展、升级 RustFS 部署并排查问题。
+  - [命令行客户端（rc）](/zh/operations/rc): 安装 RustFS 命令行客户端，并使用它连接和检查 RustFS 集群。
+  - 升级
+    - [升级](/zh/operations/upgrade): 在保持集群可用性的同时规划并执行 RustFS 升级。
+    - [二进制文件](/zh/operations/upgrade/binary)
+    - [容器](/zh/operations/upgrade/container)
+    - [Kubernetes](/zh/operations/upgrade/kubernetes)
+  - 扩缩容
+    - [扩展](/zh/operations/scaling): 扩展、再均衡和退役 RustFS 存储池。
+    - [存储池扩容](/zh/operations/scaling/storage-pool-expansion): 向 RustFS 集群添加存储池，并通过控制台或 rc 验证扩展后的拓扑。
+    - [数据再均衡](/zh/operations/scaling/data-rebalancing): 通过控制台或 rc 在活跃的 RustFS 存储池之间重新分布现有对象。
+    - [存储池退役](/zh/operations/scaling/storage-pool-decommission): 通过控制台或 rc 排空并退役 RustFS 存储池，然后验证其数据已完成迁移。
+  - 高可用性
+    - [高可用](/zh/operations/high-availability): 查看 RustFS 站点复制和节点恢复指南。
+    - [站点复制](/zh/operations/high-availability/site-replication): 使用 rc 命令行客户端配置和运维多站点 RustFS 复制。
+    - [节点修复](/zh/operations/high-availability/node-healing): 恢复故障的 RustFS 节点和磁盘、监控自动修复，并使用 rc 运行有界的手动修复任务。
+  - [集群生命周期运维](/zh/operations/cluster-lifecycle): 安全地规划、启动、扩容、再平衡、退役、修复和重启纠删码 RustFS 集群，法定数量与存储类行为均经过验证。
+  - [可观测性](/zh/operations/observability): 本文介绍 RustFS 遥测导出、监控集成、指标名称和标签、建议告警以及日志采集。
+  - [状态检查](/zh/operations/status-check): 检查 RustFS 网络访问、健康端点、集群状态和存储容量。
+  - [事件通知](/zh/operations/event-notifications): 配置 RustFS 存储桶事件通知，并将筛选后的对象事件发送到外部目标。
+- 故障排除
+  - [故障排除](/zh/troubleshooting): 诊断并解决 RustFS 问题。
+  - [硬盘故障](/zh/troubleshooting/driver): RustFS 通过类似纠删码的机制，在部分磁盘故障时仍可提供读写访问，并在更换磁盘后自动修复数据。
+  - [节点故障](/zh/troubleshooting/node): 介绍处理 RustFS 集群节点故障的完整步骤，包括准备替代节点硬件、更新配置、部署服务、重新加入集群、修复数据以及后续检查和最佳实践。
+- 开发者
+  - [开发者](/zh/developer): 使用 STS、MCP、SDK 和 S3 兼容 API 将应用程序与 RustFS 集成。
+  - SDK
+    - [RustFS SDK 概述](/zh/developer/sdk): 概述 RustFS 支持的 S3 SDK。
+    - [Java](/zh/developer/sdk/java)
+    - [Python](/zh/developer/sdk/python)
+    - [Rust](/zh/developer/sdk/rust)
+    - [JavaScript](/zh/developer/sdk/javascript)
+    - [TypeScript](/zh/developer/sdk/typescript)
+    - [Golang](/zh/developer/sdk/go)
+    - [其他 SDK](/zh/developer/sdk/other)
+  - Integration
+    - [集成](/zh/developer/integration): 将 RustFS 与反向代理、备份工具、数据库、大数据与存储系统、AI 与云原生平台、可观测性平台、容器镜像仓库和 DevOps 工具集成。
+    - 反向代理
+      - [反向代理](/zh/developer/integration/reverse-proxy): 为 RustFS S3 API 和控制台选择并配置反向代理。
+      - [Nginx](/zh/developer/integration/reverse-proxy/nginx): 在 Nginx 后方部署 RustFS，为 S3 API 和控制台配置独立的 HTTPS 端点。
+      - [Traefik](/zh/developer/integration/reverse-proxy/traefik): 在 Traefik 后方部署 RustFS，并为独立的 S3 API 和控制台主机名启用自动 TLS。
+      - [Caddy](/zh/developer/integration/reverse-proxy/caddy): 在 Caddy 后方部署 RustFS，并为独立的 S3 API 和控制台主机名启用自动 HTTPS。
+      - [Envoy](/zh/developer/integration/reverse-proxy/envoy): 在 Envoy 后部署 RustFS，用 TLS 终结的独立路由分别转发 S3 API 与 Console。
+      - [HAProxy](/zh/developer/integration/reverse-proxy/haproxy): 在 HAProxy 后方部署 RustFS，为 S3 API 和控制台配置独立的 HTTPS 路由。
+      - [Apache HTTP Server](/zh/developer/integration/reverse-proxy/httpd): 在 Apache HTTP Server 后方部署 RustFS，为 S3 API 和控制台的独立主机名终止 TLS。
+    - 备份
+      - [备份](/zh/developer/integration/backup): 通过兼容 S3 的对象存储接口将备份工具连接到 RustFS。
+      - [Kopia](/zh/developer/integration/backup/kopia): 使用 Kopia 的 S3 仓库后端把文件备份到 RustFS。
+      - [Longhorn](/zh/developer/integration/backup/longhorn): 配置 Longhorn 通过其 S3 备份目标把 Kubernetes 卷备份存储到 RustFS。
+      - [Restic](/zh/developer/integration/backup/restic): 使用 Restic 将本地数据备份到 RustFS，并从兼容 S3 的仓库中恢复快照。
+      - [Velero](/zh/developer/integration/backup/velero): 使用 Velero 的 AWS 对象存储提供方把 Kubernetes 集群资源备份到 RustFS。
+    - 数据库
+      - [数据库](/zh/developer/integration/database): 将 RustFS 用作支持 S3 兼容端点的数据库的对象存储层。
+      - [ClickHouse](/zh/developer/integration/database/clickhouse): 运行 ClickHouse，以 RustFS 作为 MergeTree 表数据的 S3 磁盘。
+      - [Apache Doris](/zh/developer/integration/database/doris): 通过 S3 仓库把 Apache Doris 表备份到 RustFS 并恢复。
+      - [DuckDB](/zh/developer/integration/database/duckdb): 使用 DuckDB 及其 httpfs 扩展查询和写入 RustFS 对象存储中的 Parquet 文件，通过 Docker Compose 部署。
+      - [InfluxDB](/zh/developer/integration/database/influxdb): 使用 Docker Compose 运行 InfluxDB 3 Core，以 RustFS 作为其 S3 对象存储。
+      - [Databend](/zh/developer/integration/database/databend): 以 RustFS 作为 Databend 的 S3 兼容存储后端。
+      - [LanceDB](/zh/developer/integration/database/lancedb): 将 LanceDB 向量表直接存储在 RustFS 上并进行查询。
+      - [Milvus](/zh/developer/integration/database/milvus): 使用 Docker Compose 运行 Milvus，并将 RustFS 用作兼容 S3 的对象存储后端。
+      - [Trino](/zh/developer/integration/database/trino): 使用 Trino 与 hive 连接器的文件元存储，查询 RustFS 对象存储中的 CSV 和 Parquet 数据。
+      - [Vitess](/zh/developer/integration/database/vitess): 通过 S3 备份存储实现，将 Vitess 备份保存到 RustFS。
+    - 大数据
+      - [数据分析](/zh/developer/integration/big-data): 通过 S3 兼容的对象存储接口将数据分析系统连接到 RustFS。
+      - [Airflow](/zh/developer/integration/big-data/airflow): 通过 Amazon S3 provider 在 Airflow DAG 与 RustFS 之间移动数据。
+      - [DolphinScheduler](/zh/developer/integration/big-data/dolphinscheduler): 经 S3 把 DolphinScheduler 资源中心存放在 RustFS 上。
+      - [Delta Lake](/zh/developer/integration/big-data/delta-lake): 用 delta-rs 在 RustFS 上读写 Delta 表。
+      - [Apache Flink](/zh/developer/integration/big-data/flink): 使用 Apache Flink 及其 S3 文件系统插件读写 RustFS 对象存储中的 CSV 数据。
+      - [Hive](/zh/developer/integration/big-data/hive): 经 S3A 把 Hive 表数据存放在 RustFS 上。
+      - [Apache Hudi](/zh/developer/integration/big-data/hudi): 通过 Spark 和 s3a 连接器把 Apache Hudi 表写入 RustFS。
+      - [Paimon](/zh/developer/integration/big-data/paimon): 在 RustFS 上以 Spark 运行 Paimon 湖仓表。
+      - [Apache Iceberg](/zh/developer/integration/big-data/iceberg): 使用 Docker Compose 运行 Apache Iceberg、Spark、REST catalog 和 RustFS 对象存储。
+      - [Kafka](/zh/developer/integration/big-data/kafka): 通过 Kafka Connect S3 sink 连接器把 Kafka 主题数据下沉到 RustFS。
+      - [AutoMQ](/zh/developer/integration/big-data/automq): 以 RustFS 作为 AutoMQ 的 S3 日志存储运行。
+      - [PyIceberg](/zh/developer/integration/big-data/pyiceberg): 使用 PyIceberg 通过 RustFS S3 Tables REST 目录创建、写入和读取 Iceberg 表。
+      - [Apache Spark](/zh/developer/integration/big-data/spark): 通过 s3a 连接器读写 RustFS 对象存储中的 Parquet 数据。
+      - [SeaTunnel](/zh/developer/integration/big-data/seatunnel): 用 S3File 连接器在 SeaTunnel 与 RustFS 之间搬运数据。
+      - [Apache Zeppelin](/zh/developer/integration/big-data/zeppelin): 通过 S3 notebook 仓库把 Apache Zeppelin 笔记本存储到 RustFS。
+    - 存储
+      - [存储](/zh/developer/integration/storage): 将 RustFS 用作存储系统与存储网关的 S3 后端。
+      - [lakeFS](/zh/developer/integration/storage/lakefs): 以 RustFS 作为 lakeFS 的 S3 blockstore，构建带版本管理的数据湖。
+      - [OpenDAL](/zh/developer/integration/storage/opendal): 应用通过 Apache OpenDAL 数据访问层读写 RustFS 对象。
+      - [ZeroFS](/zh/developer/integration/storage/zerofs): 用 ZeroFS 把 RustFS 桶作为 POSIX 文件系统通过 NFS 提供。
+      - [Alluxio](/zh/developer/integration/storage/alluxio): 用 Alluxio 缓存 RustFS 桶以加速读取。
+      - [SFTPGo](/zh/developer/integration/storage/sftpgo): 用 SFTPGo 通过 SFTP 对外提供 RustFS 桶。
+      - [s3fs](/zh/developer/integration/storage/s3fs): 用 s3fs-fuse 把 RustFS 桶挂载为本地文件系统。
+    - AI
+      - [AI](/zh/developer/integration/ai): 通过 S3 兼容的对象存储接口，将 AI 平台连接到 RustFS。
+      - [MLflow](/zh/developer/integration/ai/mlflow): 使用 Docker Compose 部署 MLflow，以 RustFS 作为实验跟踪的 S3 制品存储。
+      - [Ray](/zh/developer/integration/ai/ray): 使用 Ray Data 以 RustFS 作为 S3 兼容存储进行数据集读写。
+      - [vLLM](/zh/developer/integration/ai/vllm): 用 vLLM 加载存放在 RustFS 中的模型权重进行 LLM 推理服务。
+    - 云原生
+      - [云原生](/zh/developer/integration/cloud-native): 通过 S3 兼容的对象存储接口，将云原生平台连接到 RustFS。
+      - [Cortex](/zh/developer/integration/cloud-native/cortex): 以 RustFS 作为 Cortex 的 S3 兼容 blocks、ruler 与 alertmanager 存储后端。
+      - [Flux](/zh/developer/integration/cloud-native/flux): 通过 Bucket source API，将 RustFS 作为 Flux CD 的 Kubernetes 清单来源。
+      - [celld](/zh/developer/integration/cloud-native/celld): 以 RustFS 作为 denoland celld——自托管 Durable Objects——的舰队状态桶。
+    - 可观测性
+      - [可观测性](/zh/developer/integration/observability): 通过 S3 兼容对象存储接口，将可观测性平台连接到 RustFS。
+      - [Fluentd](/zh/developer/integration/observability/fluentd): 使用 S3 输出插件把 Fluentd 日志事件发送到 RustFS。
+      - [GreptimeDB](/zh/developer/integration/observability/greptimedb): 以 RustFS 作为 GreptimeDB 的 S3 兼容对象存储后端。
+      - [Loki](/zh/developer/integration/observability/loki): 使用 Docker Compose 运行 Grafana Loki，以 RustFS 作为其 S3 对象存储后端。
+      - [OpenObserve](/zh/developer/integration/observability/openobserve): 使用 Docker Compose 运行 OpenObserve，以 RustFS 作为其 S3 兼容对象存储后端，并验证日志的摄入、存储与查询。
+      - [OpenTelemetry](/zh/developer/integration/observability/opentelemetry): 通过 AWS S3 导出器把 OpenTelemetry Collector 日志导出到 RustFS。
+      - [Tempo](/zh/developer/integration/observability/tempo): 使用 Docker Compose 运行 Grafana Tempo，以 RustFS 作为其 S3 追踪数据存储后端。
+      - [Thanos](/zh/developer/integration/observability/thanos): 使用 Docker Compose 部署 Thanos，以 RustFS 作为 Prometheus 块的 S3 对象存储后端。
+      - [VictoriaMetrics](/zh/developer/integration/observability/victoriametrics): 用 vmbackup 把 VictoriaMetrics 快照备份到 RustFS。
+    - 其他
+      - [其他](/zh/developer/integration/others): 其他 RustFS 集成，目前为社区驱动的 Python capo SDK。
+      - [capo (Python)](/zh/developer/integration/others/capo): 将 capo 连接到 RustFS，并通过 Python 的同步或异步客户端执行基本对象操作。
+      - [JuiceFS](/zh/developer/integration/others/juicefs): 用 JuiceFS 的 S3 对象存储后端，在 RustFS 上构建 POSIX 文件系统。
+      - [Nextcloud](/zh/developer/integration/others/nextcloud): 将 RustFS 用作 Nextcloud 的 S3 外部存储。
+      - [rclone](/zh/developer/integration/others/rclone): 通过 rclone 的 S3 兼容 API 对 RustFS 存储桶执行 sync、mount 与 serve。
+      - [tusd](/zh/developer/integration/others/tusd): 用 tusd 服务器的 S3 后端，把断点续传上传接收到 RustFS。
+    - 镜像仓库
+      - [镜像仓库](/zh/developer/integration/registry): 通过 S3 兼容的对象存储接口将容器镜像仓库连接到 RustFS。
+      - [Harbor](/zh/developer/integration/registry/harbor): 通过 registry 的 S3 存储驱动，将推送到 Harbor 的容器镜像存储在 RustFS 对象存储中，使用 Docker Compose 部署。
+      - [Docker Registry（distribution）](/zh/developer/integration/registry/docker-registry): 把 Docker Registry 的容器镜像存进 RustFS。
+    - DevOps
+      - [DevOps](/zh/developer/integration/devops): 通过 S3 兼容的对象存储接口，将 DevOps 平台与基础设施工具连接到 RustFS。
+      - [Elasticsearch](/zh/developer/integration/devops/elasticsearch): 使用 Docker Compose 部署 Elasticsearch，以 RustFS 作为其索引的 S3 快照仓库。
+      - [OpenSearch](/zh/developer/integration/devops/opensearch): 用 repository-s3 插件把 OpenSearch 索引快照保存到 RustFS。
+      - [Gitea](/zh/developer/integration/devops/gitea): 使用 Docker Compose 部署 Gitea，以 RustFS 作为 LFS 对象和附件的 S3 存储后端。
+      - [Jenkins](/zh/developer/integration/devops/jenkins): 使用 Artifact Manager on S3 插件把 Jenkins 构建工件存储到 RustFS。
+      - [Terraform](/zh/developer/integration/devops/terraform): 使用 S3 后端把 Terraform 状态（含状态锁）存储在 RustFS 对象存储中。
+  - [RustFS 开源许可证](/zh/developer/license): RustFS 根据 Apache 2.0 许可证发布。
+- 参考
+  - [参考](/zh/reference): 查阅 RustFS 配置变量和命令行选项。
+  - [环境变量](/zh/reference/environment-variables): 介绍用于配置 RustFS 服务器、控制台、TLS、KMS、可观测性、扫描器、修复、存储类、凭证和事件目标的环境变量。
+  - [CLI 参考](/zh/reference/cli): 介绍 rustfs 子命令、服务器参数及对应环境变量，以及卷路径语法。
+  - [S3 兼容性矩阵](/zh/reference/s3-compatibility): 查看当前 RustFS 兼容性门禁已测试和明确排除的 Amazon S3 行为。
+
+# Docs
+
+- Installation
+  - [Installation](/de/installation): Choose the right RustFS deployment path: local trial, single-node or multi-node production, containers, and Kubernetes.
+  - Anforderungen
+    - [Topologieauswahl](/de/installation#deployment-mode-comparison)
+    - [EC Configuration](/de/installation/requirement/ec-configuration): Plan and configure RustFS erasure-set size and parity before deploying storage pools.
+    - [Disk Preparation](/de/installation/requirement/disk-preparation): Identify, format, mount, and verify dedicated data disks before installing RustFS on Linux.
+    - Checklisten
+      - [Checklist](/de/installation/requirement/checklists): Pre-installation checklists.
+      - [Hardware-Checkliste](/de/installation/requirement/checklists/hardware-checklists)
+      - [Hardwareauswahl](/de/installation/requirement/checklists/hardware-selection)
+      - [Netzwerk-Checkliste](/de/installation/requirement/checklists/network-checklists)
+      - [Software-Checkliste](/de/installation/requirement/checklists/software-checklists)
+      - [Sicherheits-Checkliste](/de/installation/requirement/checklists/security-checklists)
+  - Linux
+    - [Installing RustFS on Linux](/de/installation/linux): Choose a Linux deployment mode — SNSD, SNMD, or MNMD — and install RustFS on one or more servers.
+    - [Schnellstart](/de/installation/linux/quick-start)
+    - [Voraussetzungen und Diensteinrichtung](/de/installation/linux/prerequisites-and-service)
+    - [Einzelner Knoten mit einem Datenträger (SNSD)](/de/installation/linux/single-node-single-disk)
+    - [Einzelner Knoten mit mehreren Datenträgern (SNMD)](/de/installation/linux/single-node-multiple-disk)
+    - [Mehrere Knoten mit mehreren Datenträgern (MNMD)](/de/installation/linux/multiple-node-multiple-disk)
+  - Container
+    - [Container](/de/installation/container): Run the official RustFS container image with Docker or Podman.
+    - [Docker](/de/installation/container/docker): Run RustFS with Docker: single-node setup, host-directory permissions, Docker Compose, TLS, and multi-node deployment.
+    - [Podman](/de/installation/container/podman): Run a single-node RustFS instance with Podman and persistent container storage.
+  - Cloud-native
+    - [Kubernetes Installation (Helm)](/de/installation/cloud-native): Deploy RustFS on Kubernetes with the official Helm chart: standalone or distributed mode, storage sizing, probes, production hardening, and server-pool expansion.
+    - Helm-Chart
+      - [Overview](/de/installation/cloud-native/helm-chart): Understand how the RustFS Helm chart deploys standalone and distributed clusters on Kubernetes.
+      - [Install](/de/installation/cloud-native/helm-chart/installation): Install standalone or distributed RustFS on Kubernetes with the official Helm chart.
+      - [mTLS](/de/installation/cloud-native/helm-chart/mtls): Configure mutual TLS between RustFS Pods deployed by the Helm chart.
+      - [cert-manager](/de/installation/cloud-native/helm-chart/cert-manager): Use cert-manager to issue and renew TLS certificates for a RustFS Helm deployment.
+    - Operator
+      - [Overview](/de/installation/cloud-native/operator): Understand how RustFS Operator manages RustFS clusters on Kubernetes.
+      - [Install](/de/installation/cloud-native/operator/installation): Prepare Kubernetes, install RustFS Operator, and access its Console securely.
+      - [Multi-Tenant](/de/installation/cloud-native/operator/tenant): Create isolated RustFS Tenants and access their S3 API and Console services.
+      - [Pool Expansion](/de/installation/cloud-native/operator/pool-expansion): Add storage capacity to a RustFS Tenant by appending a storage pool.
+      - [KMS Integration](/de/installation/cloud-native/operator/kms): Configure local or HashiCorp Vault key management for a RustFS Tenant through the Operator encryption API.
+  - [Windows](/de/installation/windows)
+  - [macOS](/de/installation/macos)
+- Administration
+  - [Administration](/de/administration): Administer RustFS data, access protocols, and browser-based management.
+  - [Console](/de/administration/console)
+  - Datenverwaltung
+    - Objekte
+      - [Object Creation](/de/administration/data/object/creation): Create objects using the RustFS UI, rc, or the S3 API.
+      - [Object Deletion](/de/administration/data/object/deletion): Delete objects using the RustFS UI, rc, or the S3 API.
+      - [Object Lock](/de/administration/data/object/object-lock): Protect versioned objects from deletion with retention periods and legal holds.
+      - [Versioning](/de/administration/data/object/versioning): Enable bucket versioning, recover earlier object versions, and manage delete markers with rc and the Console.
+      - [Multipart Upload](/de/administration/data/object/multipart-upload): Upload large objects in parts, monitor Console upload tasks, and verify completed objects with rc.
+      - [Object Scanning](/de/administration/data/object/scanner): Guide to the RustFS object scanner, including design, implementation, and monitoring.
+    - Buckets
+      - [RustFS Bucket Creation](/de/administration/data/bucket/creation): Create buckets using the RustFS UI, rc, or the S3 API.
+      - [RustFS Bucket Deletion](/de/administration/data/bucket/deletion): Delete buckets using the RustFS UI, rc, or the S3 API.
+      - [Bucket Quota](/de/administration/data/bucket/quota): Configure, inspect, and verify hard storage quotas for individual RustFS buckets.
+      - [Bucket Replication](/de/administration/data/bucket/replication): Configure, validate, and monitor asynchronous replication between versioned RustFS buckets.
+      - [Bucket Policy](/de/administration/data/bucket/policy): Create, apply, inspect, and verify RustFS bucket policies with the S3 API.
+    - [S3 Tables](/de/administration/data/s3-tables): Aktivieren Sie einen RustFS-Tabellen-Bucket und verbinden Sie Iceberg-Clients mit dem integrierten REST-Katalog.
+    - [Tiered Storage](/de/administration/data/tiered-storage): Configure lifecycle-driven object transitions from RustFS to a remote storage tier.
+    - [Lifecycle Management](/de/administration/data/lifecycle-management): Configure, inspect, and maintain RustFS object lifecycle rules with the rc command-line client.
+  - Protokollunterstützung
+    - [S3](/de/administration/protocols/s3): Configure and use the RustFS S3-compatible API with AWS CLI, AWS SDKs, and other S3 clients.
+    - [WebDAV](/de/administration/protocols/webdav): Configure the RustFS WebDAV gateway and access buckets and objects with WebDAV clients.
+    - [FTP(S)](/de/administration/protocols/ftps): Configure the RustFS FTP or FTPS gateway and manage buckets and objects with FTP clients.
+    - [SFTP](/de/administration/protocols/sftp): Build, configure, and use the RustFS SFTP gateway to access buckets and objects with SFTP clients.
+    - [OpenStack-Swift-API](/de/administration/protocols/swift): Erstellen Sie RustFS mit der optionalen Swift-API und binden Sie die OpenStack-Keystone-Authentifizierung an.
+    - [MCP-Server](/de/developer/mcp)
+  - CORS Configuration
+    - [CORS Configuration](/de/administration/cors): Configure allowed browser origins for the RustFS S3 API and Console.
+  - [Virtual-Host-Zugriff](/de/integration/virtual)
+- Sicherheit und Compliance
+  - [Security & Compliance](/de/security-compliance): Configure identity, encryption, transport security, audit logging, and credentials for RustFS.
+  - IAM
+    - [RustFS IAM Management](/de/security-compliance/iam): Overview of RustFS Identity and Access Management (IAM): identity types, policy attachment, and policy evaluation semantics.
+    - [Benutzer, Gruppen und Richtlinien](/de/security-compliance/iam/policies)
+    - [Dienstkonten und STS](/de/security-compliance/iam/sts)
+    - [Zugriffsschlüssel](/de/security-compliance/iam/access-token)
+  - Datenverschlüsselung
+    - [Data Encryption](/de/security-compliance/encryption): Find the verified RustFS server-side encryption and key management references.
+    - [SSE-S3](/de/security-compliance/encryption/sse-s): Configure server-managed SSE-S3 encryption for RustFS buckets and object writes.
+    - [SSE-C](/de/security-compliance/encryption/sse-c): Use customer-provided AES-256 keys for RustFS object encryption and decryption.
+    - [SSE-KMS](/de/security-compliance/encryption/kms): Configure SSE-KMS with a local or HashiCorp Vault KMS backend for RustFS.
+  - OIDC
+    - [OIDC](/de/security-compliance/oidc): Understand how RustFS uses OpenID Connect providers for Console single sign-on.
+    - [Keycloak](/de/security-compliance/oidc/keycloak): Configure Keycloak as an OpenID Connect identity provider for RustFS Console single sign-on.
+    - [GitLab](/de/security-compliance/oidc/gitlab): Configure GitLab as an OpenID Connect identity provider for RustFS Console single sign-on.
+  - [TLS-Konfiguration](/de/integration/tls-configured)
+  - [Audit Targets](/de/security-compliance/audit-logs): Configure RustFS audit targets and deliver request-level audit records to external systems.
+  - [Zugangsdatenverwaltung](/de/operations/credentials)
+- Betrieb und Observability
+  - [Operations & Observability](/de/operations): Operate, monitor, scale, upgrade, and troubleshoot RustFS deployments.
+  - [CLI Client (rc)](/de/operations/rc): Install the RustFS command-line client and use it to connect to and inspect a RustFS cluster.
+  - Upgrade
+    - [Upgrade](/de/operations/upgrade): Plan and perform RustFS upgrades while preserving cluster availability.
+    - [Binärdatei](/de/operations/upgrade/binary)
+    - [Container](/de/operations/upgrade/container)
+    - [Kubernetes](/de/operations/upgrade/kubernetes)
+  - Skalierung
+    - [Scaling](/de/operations/scaling): Expand, rebalance, and retire RustFS storage pools.
+    - [Pool Expansion](/de/operations/scaling/storage-pool-expansion): Add a storage pool to a RustFS cluster and verify the expanded topology through the Console or rc.
+    - [Rebalancing](/de/operations/scaling/data-rebalancing): Redistribute existing objects across active RustFS storage pools through the Console or rc.
+    - [Pool Decommission](/de/operations/scaling/storage-pool-decommission): Drain and retire a RustFS storage pool through the Console or rc, then verify that its data was relocated.
+  - Hochverfügbarkeit
+    - [High Availability](/de/operations/high-availability): Review RustFS site replication and node recovery guidance.
+    - [Site Replication](/de/operations/high-availability/site-replication): Configure and operate multi-site RustFS replication with the rc command-line client.
+    - [Node Healing](/de/operations/high-availability/node-healing): Recover failed RustFS nodes and disks, monitor automatic healing, and run bounded manual heal tasks with rc.
+  - [Cluster Lifecycle Operations](/de/operations/cluster-lifecycle): Plan, start, expand, rebalance, decommission, heal, and restart erasure-coded RustFS clusters with verified quorum and storage-class behavior.
+  - [Observability](/de/operations/observability): This article explains RustFS telemetry exports, monitoring integrations, metric names and labels, recommended alerts, and log collection.
+  - [Status Check](/de/operations/status-check): Check RustFS network access, health endpoints, cluster status, and storage capacity.
+  - [Event Notifications](/de/operations/event-notifications): Configure RustFS bucket event notifications and deliver filtered object events to external targets.
+- Fehlerbehebung
+  - [Troubleshooting](/de/troubleshooting): Diagnose and resolve RustFS issues.
+  - [Hard Drive Failures](/de/troubleshooting/driver): RustFS ensures read/write access can still be provided when some disks fail through mechanisms similar to erasure coding, and automatically heals data after replacing disks.
+  - [Node Failures](/de/troubleshooting/node): Complete steps for handling node failures in RustFS clusters. Mainly includes: replacement node hardware preparation, configuration updates, service deployment, rejoining the cluster, data healing, and subsequent checks and best practices.
+- Entwicklung
+  - [Developer](/de/developer): Integrate applications with RustFS by using STS, MCP, SDKs, and the S3-compatible API.
+  - SDK
+    - [RustFS SDK Overview](/de/developer/sdk): Overview of supported S3 SDKs for RustFS.
+    - [Java](/de/developer/sdk/java)
+    - [Python](/de/developer/sdk/python)
+    - [Rust](/de/developer/sdk/rust)
+    - [JavaScript](/de/developer/sdk/javascript)
+    - [TypeScript](/de/developer/sdk/typescript)
+    - [Golang](/de/developer/sdk/go)
+    - [Weitere SDKs](/de/developer/sdk/other)
+  - Integration
+    - [Integration](/de/developer/integration): Integrieren Sie RustFS mit Reverse Proxies, Backup-Tools, Datenanalyse-Systemen, KI- und Cloud-Native-Plattformen, Observability-Plattformen, Container-Registries und DevOps-Tooling.
+    - Reverse Proxy
+      - [Reverse Proxy](/de/developer/integration/reverse-proxy): Choose and configure a reverse proxy for the RustFS S3 API and Console.
+      - [Nginx](/de/developer/integration/reverse-proxy/nginx): Deploy RustFS behind Nginx with separate HTTPS endpoints for the S3 API and Console.
+      - [Traefik](/de/developer/integration/reverse-proxy/traefik): Deploy RustFS behind Traefik with automatic TLS for separate S3 API and Console hostnames.
+      - [Caddy](/de/developer/integration/reverse-proxy/caddy): Deploy RustFS behind Caddy with automatic HTTPS for separate S3 API and Console hostnames.
+      - [Envoy](/de/developer/integration/reverse-proxy/envoy): Deploy RustFS behind Envoy with TLS-terminated routes for the S3 API and Console.
+      - [HAProxy](/de/developer/integration/reverse-proxy/haproxy): Deploy RustFS behind HAProxy with separate HTTPS routes for the S3 API and Console.
+      - [Apache HTTP Server](/de/developer/integration/reverse-proxy/httpd): Deploy RustFS behind Apache HTTP Server with TLS termination for separate S3 API and Console hostnames.
+    - Backup
+      - [Backup](/de/developer/integration/backup): Verbinden Sie Backup-Tools über S3-kompatible Objektspeicher-Schnittstellen mit RustFS.
+      - [Kopia](/de/developer/integration/backup/kopia): Back up files to RustFS with Kopia's S3 repository backend.
+      - [Longhorn](/de/developer/integration/backup/longhorn): Configure Longhorn to store Kubernetes volume backups in RustFS through its S3 backup target.
+      - [Restic](/de/developer/integration/backup/restic): Sichern Sie lokale Daten mit Restic in RustFS und stellen Sie Snapshots aus einem S3-kompatiblen Repository wieder her.
+      - [Velero](/de/developer/integration/backup/velero): Back up Kubernetes cluster resources to RustFS with Velero's AWS object store provider.
+    - Database
+      - [Database](/de/developer/integration/database): Connect databases to RustFS through S3-compatible object storage interfaces.
+      - [ClickHouse](/de/developer/integration/database/clickhouse): Run ClickHouse with an S3 disk backed by RustFS for MergeTree table data.
+      - [Apache Doris](/de/developer/integration/database/doris): Back up Apache Doris tables to RustFS through an S3 repository and restore them.
+      - [DuckDB](/de/developer/integration/database/duckdb): Abfragen und Schreiben von Parquet-Dateien im RustFS-Objektspeicher mit DuckDB und dessen httpfs-Erweiterung, bereitgestellt mit Docker Compose.
+      - [InfluxDB](/de/developer/integration/database/influxdb): Betreiben Sie InfluxDB 3 Core mit RustFS als S3-Objektspeicher, bereitgestellt mit Docker Compose.
+      - [Databend](/de/developer/integration/database/databend): Run Databend with RustFS as the S3-compatible storage backend.
+      - [LanceDB](/de/developer/integration/database/lancedb): Store and query LanceDB vector tables directly on RustFS.
+      - [Milvus](/de/developer/integration/database/milvus): Run Milvus with RustFS as its S3-compatible object storage backend using Docker Compose.
+      - [Trino](/de/developer/integration/database/trino): Abfragen von CSV- und Parquet-Daten im RustFS-Objektspeicher mit Trino und dem File-Metastore des hive-Connectors.
+      - [Vitess](/de/developer/integration/database/vitess): Back up Vitess to RustFS through the S3 backup storage implementation.
+    - Big Data
+      - [Datenanalyse](/de/developer/integration/big-data): Connect big data systems to RustFS through S3-compatible object storage interfaces.
+      - [Airflow](/de/developer/integration/big-data/airflow): Move data between Airflow DAGs and RustFS with the Amazon S3 provider.
+      - [DolphinScheduler](/de/developer/integration/big-data/dolphinscheduler): Store DolphinScheduler resources on RustFS over S3.
+      - [Delta Lake](/de/developer/integration/big-data/delta-lake): Write and read Delta tables on RustFS with delta-rs.
+      - [Apache Flink](/de/developer/integration/big-data/flink): Lesen und schreiben Sie CSV-Daten im RustFS-Objektspeicher mit Apache Flink und dessen S3-Dateisystem-Plugin.
+      - [Hive](/de/developer/integration/big-data/hive): Store Hive table data on RustFS over S3A.
+      - [Apache Hudi](/de/developer/integration/big-data/hudi): Write Apache Hudi tables to RustFS through Spark and the s3a connector.
+      - [Paimon](/de/developer/integration/big-data/paimon): Run Paimon lakehouse tables on RustFS with Spark.
+      - [Apache Iceberg](/de/developer/integration/big-data/iceberg): Run Apache Iceberg with Spark, a REST catalog, and RustFS object storage using Docker Compose.
+      - [Kafka](/de/developer/integration/big-data/kafka): Offload Kafka topic data to RustFS with the Kafka Connect S3 sink connector.
+      - [AutoMQ](/de/developer/integration/big-data/automq): Run AutoMQ with RustFS as the S3-backed log storage.
+      - [PyIceberg](/de/developer/integration/big-data/pyiceberg): Erstellen, schreiben und lesen Sie mit PyIceberg eine Iceberg-Tabelle über den REST-Katalog von RustFS S3 Tables.
+      - [Apache Spark](/de/developer/integration/big-data/spark): Lesen und schreiben Sie Parquet-Daten im RustFS-Objektspeicher mit Apache Spark über den s3a-Connector.
+      - [SeaTunnel](/de/developer/integration/big-data/seatunnel): Move data between SeaTunnel and RustFS with the S3File connector.
+      - [Apache Zeppelin](/de/developer/integration/big-data/zeppelin): Store Apache Zeppelin notebooks in RustFS through the S3 notebook repository.
+    - Storage
+      - [Storage](/de/developer/integration/storage): Use RustFS as the S3 backend for storage systems and storage gateways.
+      - [lakeFS](/de/developer/integration/storage/lakefs): Run lakeFS with RustFS as its S3 blockstore for versioned data lakes.
+      - [OpenDAL](/de/developer/integration/storage/opendal): Access RustFS objects from applications through the Apache OpenDAL data access layer.
+      - [ZeroFS](/de/developer/integration/storage/zerofs): Serve a RustFS bucket as a POSIX filesystem over NFS with ZeroFS.
+      - [Alluxio](/de/developer/integration/storage/alluxio): Cache RustFS buckets with Alluxio for faster reads.
+      - [SFTPGo](/de/developer/integration/storage/sftpgo): Serve RustFS buckets over SFTP with SFTPGo.
+      - [s3fs](/de/developer/integration/storage/s3fs): Mount a RustFS bucket as a local filesystem with s3fs-fuse.
+    - AI
+      - [AI](/de/developer/integration/ai): Verbinden Sie KI-Plattformen über S3-kompatible Objektspeicher-Schnittstellen mit RustFS.
+      - [MLflow](/de/developer/integration/ai/mlflow): Run MLflow with RustFS as the S3 artifact store for experiment tracking, deployed with Docker Compose.
+      - [Ray](/de/developer/integration/ai/ray): Use Ray Data with RustFS as S3-compatible storage for dataset writes and reads.
+      - [vLLM](/de/developer/integration/ai/vllm): Serve LLM inference with vLLM loading model weights stored in RustFS.
+    - Cloud Native
+      - [Cloud Native](/de/developer/integration/cloud-native): Connect cloud native platforms to RustFS through S3-compatible object storage interfaces.
+      - [Cortex](/de/developer/integration/cloud-native/cortex): Run Cortex with RustFS as the S3-compatible blocks, ruler, and alertmanager storage backend.
+      - [Flux](/de/developer/integration/cloud-native/flux): Deliver Kubernetes manifests to Flux CD from RustFS through the Bucket source API.
+      - [celld](/de/developer/integration/cloud-native/celld): Run denoland celld — self-hosted Durable Objects — with fleet state on RustFS.
+    - Observability
+      - [Observability](/de/developer/integration/observability): Verbinden Sie Observability-Plattformen über S3-kompatible Objektspeicher-Schnittstellen mit RustFS.
+      - [Fluentd](/de/developer/integration/observability/fluentd): Ship Fluentd log events to RustFS with the S3 output plugin.
+      - [GreptimeDB](/de/developer/integration/observability/greptimedb): Run GreptimeDB with RustFS as the S3-compatible object storage backend.
+      - [Loki](/de/developer/integration/observability/loki): Betreiben Sie Grafana Loki mit RustFS als S3-Objektspeicher-Backend, bereitgestellt mit Docker Compose.
+      - [OpenObserve](/de/developer/integration/observability/openobserve): Betreiben Sie OpenObserve mit RustFS als S3-kompatiblem Objektspeicher-Backend über Docker Compose und prüfen Sie Login, Speicherung und Suche von Protokollen.
+      - [OpenTelemetry](/de/developer/integration/observability/opentelemetry): Export OpenTelemetry Collector logs to RustFS with the AWS S3 exporter.
+      - [Tempo](/de/developer/integration/observability/tempo): Betreiben Sie Grafana Tempo mit RustFS als S3-Backend für Trace-Daten, bereitgestellt mit Docker Compose.
+      - [Thanos](/de/developer/integration/observability/thanos): Run Thanos with RustFS as the S3 object storage backend for Prometheus blocks, deployed with Docker Compose.
+      - [VictoriaMetrics](/de/developer/integration/observability/victoriametrics): Back up VictoriaMetrics snapshots to RustFS with vmbackup.
+    - Sonstige
+      - [Sonstige](/de/developer/integration/others): Weitere RustFS-Integrationen, derzeit das Community-SDK capo für Python.
+      - [capo (Python)](/de/developer/integration/others/capo): Verbinden Sie capo mit RustFS und führen Sie grundlegende Objektoperationen aus Python mit synchronen oder asynchronen Clients aus.
+      - [JuiceFS](/de/developer/integration/others/juicefs): Build a POSIX filesystem on RustFS with JuiceFS S3 object storage.
+      - [Nextcloud](/de/developer/integration/others/nextcloud): Use RustFS as S3 external storage for Nextcloud files.
+      - [rclone](/de/developer/integration/others/rclone): Sync, mount, and serve RustFS buckets with rclone over its S3-compatible API.
+      - [tusd](/de/developer/integration/others/tusd): Receive resumable uploads into RustFS with the tusd server's S3 backend.
+    - Registry
+      - [Registry](/de/developer/integration/registry): Verbinden Sie Container-Registries über S3-kompatible Objektspeicher-Schnittstellen mit RustFS.
+      - [Harbor](/de/developer/integration/registry/harbor): Speichern Sie über Harbor gepushte Container-Images in RustFS-Objektspeicher über den S3-Storage-Treiber der Registry, bereitgestellt mit Docker Compose.
+      - [Docker Registry](/de/developer/integration/registry/docker-registry): Store container images from Docker Registry in RustFS.
+    - DevOps
+      - [DevOps](/de/developer/integration/devops): Verbinden Sie DevOps-Plattformen und Infrastructure-Tooling über S3-kompatible Objektspeicher-Schnittstellen mit RustFS.
+      - [Elasticsearch](/de/developer/integration/devops/elasticsearch): Use RustFS as the S3 snapshot repository for Elasticsearch indices, deployed with Docker Compose.
+      - [OpenSearch](/de/developer/integration/devops/opensearch): Snapshot OpenSearch indices to RustFS with the repository-s3 plugin.
+      - [Gitea](/de/developer/integration/devops/gitea): Run Gitea with RustFS as the S3 storage backend for LFS objects and attachments, deployed with Docker Compose.
+      - [Jenkins](/de/developer/integration/devops/jenkins): Store Jenkins build artifacts in RustFS with the Artifact Manager on S3 plugin.
+      - [Terraform](/de/developer/integration/devops/terraform): Store Terraform state in RustFS object storage with the S3 backend, including state locking.
+  - [RustFS Open Source License](/de/developer/license): RustFS is released under the Apache 2.0 license.
+- Referenz
+  - [Reference](/de/reference): Look up RustFS configuration variables and command-line options.
+  - [Environment Variables](/de/reference/environment-variables): Reference for the environment variables that configure the RustFS server, console, TLS, KMS, observability, scanner, healing, storage classes, credentials, and event targets.
+  - [CLI Reference](/de/reference/cli): Reference for the rustfs subcommands, server flags, environment variable equivalents, and volume path syntax.
+  - [S3-Kompatibilitätsmatrix](/de/reference/s3-compatibility): Prüfen Sie das getestete und bewusst ausgeschlossene Amazon-S3-Verhalten im aktuellen RustFS-Kompatibilitäts-Gate.
+
+# Docs
+
+- Installation
+  - [Installation](/fr/installation): Choose the right RustFS deployment path: local trial, single-node or multi-node production, containers, and Kubernetes.
+  - Prérequis
+    - [Choix de la topologie](/fr/installation#deployment-mode-comparison)
+    - [EC Configuration](/fr/installation/requirement/ec-configuration): Plan and configure RustFS erasure-set size and parity before deploying storage pools.
+    - [Disk Preparation](/fr/installation/requirement/disk-preparation): Identify, format, mount, and verify dedicated data disks before installing RustFS on Linux.
+    - Listes de contrôle
+      - [Checklist](/fr/installation/requirement/checklists): Pre-installation checklists.
+      - [Liste de contrôle du matériel](/fr/installation/requirement/checklists/hardware-checklists)
+      - [Choix du matériel](/fr/installation/requirement/checklists/hardware-selection)
+      - [Liste de contrôle du réseau](/fr/installation/requirement/checklists/network-checklists)
+      - [Liste de contrôle des logiciels](/fr/installation/requirement/checklists/software-checklists)
+      - [Liste de contrôle de la sécurité](/fr/installation/requirement/checklists/security-checklists)
+  - Linux
+    - [Installing RustFS on Linux](/fr/installation/linux): Choose a Linux deployment mode — SNSD, SNMD, or MNMD — and install RustFS on one or more servers.
+    - [Démarrage rapide](/fr/installation/linux/quick-start)
+    - [Prérequis et configuration du service](/fr/installation/linux/prerequisites-and-service)
+    - [Nœud unique et disque unique (SNSD)](/fr/installation/linux/single-node-single-disk)
+    - [Nœud unique et plusieurs disques (SNMD)](/fr/installation/linux/single-node-multiple-disk)
+    - [Plusieurs nœuds et plusieurs disques (MNMD)](/fr/installation/linux/multiple-node-multiple-disk)
+  - Conteneurs
+    - [Container](/fr/installation/container): Run the official RustFS container image with Docker or Podman.
+    - [Docker](/fr/installation/container/docker): Run RustFS with Docker: single-node setup, host-directory permissions, Docker Compose, TLS, and multi-node deployment.
+    - [Podman](/fr/installation/container/podman): Run a single-node RustFS instance with Podman and persistent container storage.
+  - Cloud natif
+    - [Kubernetes Installation (Helm)](/fr/installation/cloud-native): Deploy RustFS on Kubernetes with the official Helm chart: standalone or distributed mode, storage sizing, probes, production hardening, and server-pool expansion.
+    - Chart Helm
+      - [Overview](/fr/installation/cloud-native/helm-chart): Understand how the RustFS Helm chart deploys standalone and distributed clusters on Kubernetes.
+      - [Install](/fr/installation/cloud-native/helm-chart/installation): Install standalone or distributed RustFS on Kubernetes with the official Helm chart.
+      - [mTLS](/fr/installation/cloud-native/helm-chart/mtls): Configure mutual TLS between RustFS Pods deployed by the Helm chart.
+      - [cert-manager](/fr/installation/cloud-native/helm-chart/cert-manager): Use cert-manager to issue and renew TLS certificates for a RustFS Helm deployment.
+    - Opérateur RustFS
+      - [Overview](/fr/installation/cloud-native/operator): Understand how RustFS Operator manages RustFS clusters on Kubernetes.
+      - [Install](/fr/installation/cloud-native/operator/installation): Prepare Kubernetes, install RustFS Operator, and access its Console securely.
+      - [Multi-Tenant](/fr/installation/cloud-native/operator/tenant): Create isolated RustFS Tenants and access their S3 API and Console services.
+      - [Pool Expansion](/fr/installation/cloud-native/operator/pool-expansion): Add storage capacity to a RustFS Tenant by appending a storage pool.
+      - [KMS Integration](/fr/installation/cloud-native/operator/kms): Configure local or HashiCorp Vault key management for a RustFS Tenant through the Operator encryption API.
+  - [Windows](/fr/installation/windows)
+  - [macOS](/fr/installation/macos)
+- Administration
+  - [Administration](/fr/administration): Administer RustFS data, access protocols, and browser-based management.
+  - [Console](/fr/administration/console)
+  - Gestion des données
+    - Objets
+      - [Object Creation](/fr/administration/data/object/creation): Create objects using the RustFS UI, rc, or the S3 API.
+      - [Object Deletion](/fr/administration/data/object/deletion): Delete objects using the RustFS UI, rc, or the S3 API.
+      - [Object Lock](/fr/administration/data/object/object-lock): Protect versioned objects from deletion with retention periods and legal holds.
+      - [Versioning](/fr/administration/data/object/versioning): Enable bucket versioning, recover earlier object versions, and manage delete markers with rc and the Console.
+      - [Multipart Upload](/fr/administration/data/object/multipart-upload): Upload large objects in parts, monitor Console upload tasks, and verify completed objects with rc.
+      - [Object Scanning](/fr/administration/data/object/scanner): Guide to the RustFS object scanner, including design, implementation, and monitoring.
+    - Buckets
+      - [RustFS Bucket Creation](/fr/administration/data/bucket/creation): Create buckets using the RustFS UI, rc, or the S3 API.
+      - [RustFS Bucket Deletion](/fr/administration/data/bucket/deletion): Delete buckets using the RustFS UI, rc, or the S3 API.
+      - [Bucket Quota](/fr/administration/data/bucket/quota): Configure, inspect, and verify hard storage quotas for individual RustFS buckets.
+      - [Bucket Replication](/fr/administration/data/bucket/replication): Configure, validate, and monitor asynchronous replication between versioned RustFS buckets.
+      - [Bucket Policy](/fr/administration/data/bucket/policy): Create, apply, inspect, and verify RustFS bucket policies with the S3 API.
+    - [S3 Tables](/fr/administration/data/s3-tables): Activez un compartiment de tables RustFS et connectez des clients Iceberg au catalogue REST intégré.
+    - [Tiered Storage](/fr/administration/data/tiered-storage): Configure lifecycle-driven object transitions from RustFS to a remote storage tier.
+    - [Lifecycle Management](/fr/administration/data/lifecycle-management): Configure, inspect, and maintain RustFS object lifecycle rules with the rc command-line client.
+  - Prise en charge des protocoles
+    - [S3](/fr/administration/protocols/s3): Configure and use the RustFS S3-compatible API with AWS CLI, AWS SDKs, and other S3 clients.
+    - [WebDAV](/fr/administration/protocols/webdav): Configure the RustFS WebDAV gateway and access buckets and objects with WebDAV clients.
+    - [FTP(S)](/fr/administration/protocols/ftps): Configure the RustFS FTP or FTPS gateway and manage buckets and objects with FTP clients.
+    - [SFTP](/fr/administration/protocols/sftp): Build, configure, and use the RustFS SFTP gateway to access buckets and objects with SFTP clients.
+    - [API OpenStack Swift](/fr/administration/protocols/swift): Compilez RustFS avec l’API Swift facultative et raccordez-la à l’authentification OpenStack Keystone.
+    - [Serveur MCP](/fr/developer/mcp)
+  - CORS Configuration
+    - [CORS Configuration](/fr/administration/cors): Configure allowed browser origins for the RustFS S3 API and Console.
+  - [Accès par hôte virtuel](/fr/integration/virtual)
+- Sécurité et conformité
+  - [Security & Compliance](/fr/security-compliance): Configure identity, encryption, transport security, audit logging, and credentials for RustFS.
+  - IAM
+    - [RustFS IAM Management](/fr/security-compliance/iam): Overview of RustFS Identity and Access Management (IAM): identity types, policy attachment, and policy evaluation semantics.
+    - [Utilisateurs, groupes et politiques](/fr/security-compliance/iam/policies)
+    - [Comptes de service et STS](/fr/security-compliance/iam/sts)
+    - [Clés d’accès](/fr/security-compliance/iam/access-token)
+  - Chiffrement des données
+    - [Data Encryption](/fr/security-compliance/encryption): Find the verified RustFS server-side encryption and key management references.
+    - [SSE-S3](/fr/security-compliance/encryption/sse-s): Configure server-managed SSE-S3 encryption for RustFS buckets and object writes.
+    - [SSE-C](/fr/security-compliance/encryption/sse-c): Use customer-provided AES-256 keys for RustFS object encryption and decryption.
+    - [SSE-KMS](/fr/security-compliance/encryption/kms): Configure SSE-KMS with a local or HashiCorp Vault KMS backend for RustFS.
+  - OIDC
+    - [OIDC](/fr/security-compliance/oidc): Understand how RustFS uses OpenID Connect providers for Console single sign-on.
+    - [Keycloak](/fr/security-compliance/oidc/keycloak): Configure Keycloak as an OpenID Connect identity provider for RustFS Console single sign-on.
+    - [GitLab](/fr/security-compliance/oidc/gitlab): Configure GitLab as an OpenID Connect identity provider for RustFS Console single sign-on.
+  - [Configuration TLS](/fr/integration/tls-configured)
+  - [Audit Targets](/fr/security-compliance/audit-logs): Configure RustFS audit targets and deliver request-level audit records to external systems.
+  - [Gestion des informations d’identification](/fr/operations/credentials)
+- Exploitation et observabilité
+  - [Operations & Observability](/fr/operations): Operate, monitor, scale, upgrade, and troubleshoot RustFS deployments.
+  - [CLI Client (rc)](/fr/operations/rc): Install the RustFS command-line client and use it to connect to and inspect a RustFS cluster.
+  - Mise à niveau
+    - [Upgrade](/fr/operations/upgrade): Plan and perform RustFS upgrades while preserving cluster availability.
+    - [Binaire](/fr/operations/upgrade/binary)
+    - [Conteneur](/fr/operations/upgrade/container)
+    - [Kubernetes](/fr/operations/upgrade/kubernetes)
+  - Mise à l’échelle
+    - [Scaling](/fr/operations/scaling): Expand, rebalance, and retire RustFS storage pools.
+    - [Pool Expansion](/fr/operations/scaling/storage-pool-expansion): Add a storage pool to a RustFS cluster and verify the expanded topology through the Console or rc.
+    - [Rebalancing](/fr/operations/scaling/data-rebalancing): Redistribute existing objects across active RustFS storage pools through the Console or rc.
+    - [Pool Decommission](/fr/operations/scaling/storage-pool-decommission): Drain and retire a RustFS storage pool through the Console or rc, then verify that its data was relocated.
+  - Haute disponibilité
+    - [High Availability](/fr/operations/high-availability): Review RustFS site replication and node recovery guidance.
+    - [Site Replication](/fr/operations/high-availability/site-replication): Configure and operate multi-site RustFS replication with the rc command-line client.
+    - [Node Healing](/fr/operations/high-availability/node-healing): Recover failed RustFS nodes and disks, monitor automatic healing, and run bounded manual heal tasks with rc.
+  - [Cluster Lifecycle Operations](/fr/operations/cluster-lifecycle): Plan, start, expand, rebalance, decommission, heal, and restart erasure-coded RustFS clusters with verified quorum and storage-class behavior.
+  - [Observability](/fr/operations/observability): This article explains RustFS telemetry exports, monitoring integrations, metric names and labels, recommended alerts, and log collection.
+  - [Status Check](/fr/operations/status-check): Check RustFS network access, health endpoints, cluster status, and storage capacity.
+  - [Event Notifications](/fr/operations/event-notifications): Configure RustFS bucket event notifications and deliver filtered object events to external targets.
+- Dépannage
+  - [Troubleshooting](/fr/troubleshooting): Diagnose and resolve RustFS issues.
+  - [Hard Drive Failures](/fr/troubleshooting/driver): RustFS ensures read/write access can still be provided when some disks fail through mechanisms similar to erasure coding, and automatically heals data after replacing disks.
+  - [Node Failures](/fr/troubleshooting/node): Complete steps for handling node failures in RustFS clusters. Mainly includes: replacement node hardware preparation, configuration updates, service deployment, rejoining the cluster, data healing, and subsequent checks and best practices.
+- Développement
+  - [Developer](/fr/developer): Integrate applications with RustFS by using STS, MCP, SDKs, and the S3-compatible API.
+  - SDK
+    - [RustFS SDK Overview](/fr/developer/sdk): Overview of supported S3 SDKs for RustFS.
+    - [Java](/fr/developer/sdk/java)
+    - [Python](/fr/developer/sdk/python)
+    - [Rust](/fr/developer/sdk/rust)
+    - [JavaScript](/fr/developer/sdk/javascript)
+    - [TypeScript](/fr/developer/sdk/typescript)
+    - [Golang](/fr/developer/sdk/go)
+    - [Autres SDK](/fr/developer/sdk/other)
+  - Integration
+    - [Integration](/fr/developer/integration): Intégrez RustFS avec des reverse proxies, des outils de sauvegarde, des systèmes d'analyse de données, des plateformes d'IA et cloud native, des plateformes d'observabilité, des registries de conteneurs et des outils DevOps.
+    - Proxy inverse
+      - [Reverse Proxy](/fr/developer/integration/reverse-proxy): Choose and configure a reverse proxy for the RustFS S3 API and Console.
+      - [Nginx](/fr/developer/integration/reverse-proxy/nginx): Deploy RustFS behind Nginx with separate HTTPS endpoints for the S3 API and Console.
+      - [Traefik](/fr/developer/integration/reverse-proxy/traefik): Deploy RustFS behind Traefik with automatic TLS for separate S3 API and Console hostnames.
+      - [Caddy](/fr/developer/integration/reverse-proxy/caddy): Deploy RustFS behind Caddy with automatic HTTPS for separate S3 API and Console hostnames.
+      - [Envoy](/fr/developer/integration/reverse-proxy/envoy): Deploy RustFS behind Envoy with TLS-terminated routes for the S3 API and Console.
+      - [HAProxy](/fr/developer/integration/reverse-proxy/haproxy): Deploy RustFS behind HAProxy with separate HTTPS routes for the S3 API and Console.
+      - [Apache HTTP Server](/fr/developer/integration/reverse-proxy/httpd): Deploy RustFS behind Apache HTTP Server with TLS termination for separate S3 API and Console hostnames.
+    - Sauvegarde
+      - [Sauvegarde](/fr/developer/integration/backup): Connectez des outils de sauvegarde à RustFS via des interfaces de stockage objet compatibles S3.
+      - [Kopia](/fr/developer/integration/backup/kopia): Back up files to RustFS with Kopia's S3 repository backend.
+      - [Longhorn](/fr/developer/integration/backup/longhorn): Configure Longhorn to store Kubernetes volume backups in RustFS through its S3 backup target.
+      - [Restic](/fr/developer/integration/backup/restic): Sauvegardez des données locales vers RustFS avec Restic et restaurez des snapshots depuis un dépôt compatible S3.
+      - [Velero](/fr/developer/integration/backup/velero): Back up Kubernetes cluster resources to RustFS with Velero's AWS object store provider.
+    - Database
+      - [Database](/fr/developer/integration/database): Connect databases to RustFS through S3-compatible object storage interfaces.
+      - [ClickHouse](/fr/developer/integration/database/clickhouse): Run ClickHouse with an S3 disk backed by RustFS for MergeTree table data.
+      - [Apache Doris](/fr/developer/integration/database/doris): Back up Apache Doris tables to RustFS through an S3 repository and restore them.
+      - [DuckDB](/fr/developer/integration/database/duckdb): Interrogez et écrivez des fichiers Parquet stockés dans le stockage objet RustFS avec DuckDB et son extension httpfs, déployés avec Docker Compose.
+      - [InfluxDB](/fr/developer/integration/database/influxdb): Exécutez InfluxDB 3 Core avec RustFS comme magasin d'objets S3, déployé avec Docker Compose.
+      - [Databend](/fr/developer/integration/database/databend): Run Databend with RustFS as the S3-compatible storage backend.
+      - [LanceDB](/fr/developer/integration/database/lancedb): Store and query LanceDB vector tables directly on RustFS.
+      - [Milvus](/fr/developer/integration/database/milvus): Run Milvus with RustFS as its S3-compatible object storage backend using Docker Compose.
+      - [Trino](/fr/developer/integration/database/trino): Interrogez des données CSV et Parquet stockées dans le stockage objet RustFS avec Trino et le file metastore du connecteur hive.
+      - [Vitess](/fr/developer/integration/database/vitess): Back up Vitess to RustFS through the S3 backup storage implementation.
+    - Big Data
+      - [Analyse de données](/fr/developer/integration/big-data): Connect big data systems to RustFS through S3-compatible object storage interfaces.
+      - [Airflow](/fr/developer/integration/big-data/airflow): Move data between Airflow DAGs and RustFS with the Amazon S3 provider.
+      - [DolphinScheduler](/fr/developer/integration/big-data/dolphinscheduler): Store DolphinScheduler resources on RustFS over S3.
+      - [Delta Lake](/fr/developer/integration/big-data/delta-lake): Write and read Delta tables on RustFS with delta-rs.
+      - [Apache Flink](/fr/developer/integration/big-data/flink): Lisez et écrivez des données CSV stockées dans le stockage objet RustFS avec Apache Flink et son plugin S3 filesystem.
+      - [Hive](/fr/developer/integration/big-data/hive): Store Hive table data on RustFS over S3A.
+      - [Apache Hudi](/fr/developer/integration/big-data/hudi): Write Apache Hudi tables to RustFS through Spark and the s3a connector.
+      - [Paimon](/fr/developer/integration/big-data/paimon): Run Paimon lakehouse tables on RustFS with Spark.
+      - [Apache Iceberg](/fr/developer/integration/big-data/iceberg): Run Apache Iceberg with Spark, a REST catalog, and RustFS object storage using Docker Compose.
+      - [Kafka](/fr/developer/integration/big-data/kafka): Offload Kafka topic data to RustFS with the Kafka Connect S3 sink connector.
+      - [AutoMQ](/fr/developer/integration/big-data/automq): Run AutoMQ with RustFS as the S3-backed log storage.
+      - [PyIceberg](/fr/developer/integration/big-data/pyiceberg): Créez, écrivez et lisez une table Iceberg avec PyIceberg via le catalogue REST de RustFS S3 Tables.
+      - [Apache Spark](/fr/developer/integration/big-data/spark): Lisez et écrivez des données Parquet stockées dans le stockage objet RustFS avec Apache Spark via le connecteur s3a.
+      - [SeaTunnel](/fr/developer/integration/big-data/seatunnel): Move data between SeaTunnel and RustFS with the S3File connector.
+      - [Apache Zeppelin](/fr/developer/integration/big-data/zeppelin): Store Apache Zeppelin notebooks in RustFS through the S3 notebook repository.
+    - Storage
+      - [Storage](/fr/developer/integration/storage): Use RustFS as the S3 backend for storage systems and storage gateways.
+      - [lakeFS](/fr/developer/integration/storage/lakefs): Run lakeFS with RustFS as its S3 blockstore for versioned data lakes.
+      - [OpenDAL](/fr/developer/integration/storage/opendal): Access RustFS objects from applications through the Apache OpenDAL data access layer.
+      - [ZeroFS](/fr/developer/integration/storage/zerofs): Serve a RustFS bucket as a POSIX filesystem over NFS with ZeroFS.
+      - [Alluxio](/fr/developer/integration/storage/alluxio): Cache RustFS buckets with Alluxio for faster reads.
+      - [SFTPGo](/fr/developer/integration/storage/sftpgo): Serve RustFS buckets over SFTP with SFTPGo.
+      - [s3fs](/fr/developer/integration/storage/s3fs): Mount a RustFS bucket as a local filesystem with s3fs-fuse.
+    - IA
+      - [IA](/fr/developer/integration/ai): Connectez les plateformes d'IA à RustFS via des interfaces de stockage objet compatibles S3.
+      - [MLflow](/fr/developer/integration/ai/mlflow): Run MLflow with RustFS as the S3 artifact store for experiment tracking, deployed with Docker Compose.
+      - [Ray](/fr/developer/integration/ai/ray): Use Ray Data with RustFS as S3-compatible storage for dataset writes and reads.
+      - [vLLM](/fr/developer/integration/ai/vllm): Serve LLM inference with vLLM loading model weights stored in RustFS.
+    - Cloud Native
+      - [Cloud Native](/fr/developer/integration/cloud-native): Connect cloud native platforms to RustFS through S3-compatible object storage interfaces.
+      - [Cortex](/fr/developer/integration/cloud-native/cortex): Run Cortex with RustFS as the S3-compatible blocks, ruler, and alertmanager storage backend.
+      - [Flux](/fr/developer/integration/cloud-native/flux): Deliver Kubernetes manifests to Flux CD from RustFS through the Bucket source API.
+      - [celld](/fr/developer/integration/cloud-native/celld): Run denoland celld — self-hosted Durable Objects — with fleet state on RustFS.
+    - Observabilité
+      - [Observabilité](/fr/developer/integration/observability): Connectez les plateformes d'observabilité à RustFS via des interfaces de stockage objet compatibles S3.
+      - [Fluentd](/fr/developer/integration/observability/fluentd): Ship Fluentd log events to RustFS with the S3 output plugin.
+      - [GreptimeDB](/fr/developer/integration/observability/greptimedb): Run GreptimeDB with RustFS as the S3-compatible object storage backend.
+      - [Loki](/fr/developer/integration/observability/loki): Exécutez Grafana Loki avec RustFS comme backend de stockage objet S3, déployé avec Docker Compose.
+      - [OpenObserve](/fr/developer/integration/observability/openobserve): Exécutez OpenObserve avec RustFS comme backend de stockage objet compatible S3 via Docker Compose, et vérifiez l'ingestion, le stockage et la recherche de journaux.
+      - [OpenTelemetry](/fr/developer/integration/observability/opentelemetry): Export OpenTelemetry Collector logs to RustFS with the AWS S3 exporter.
+      - [Tempo](/fr/developer/integration/observability/tempo): Exécutez Grafana Tempo avec RustFS comme backend de stockage S3 pour les traces, déployé avec Docker Compose.
+      - [Thanos](/fr/developer/integration/observability/thanos): Run Thanos with RustFS as the S3 object storage backend for Prometheus blocks, deployed with Docker Compose.
+      - [VictoriaMetrics](/fr/developer/integration/observability/victoriametrics): Back up VictoriaMetrics snapshots to RustFS with vmbackup.
+    - Autres
+      - [Autres](/fr/developer/integration/others): Autres intégrations RustFS, actuellement le SDK communautaire capo pour Python.
+      - [capo (Python)](/fr/developer/integration/others/capo): Connectez capo à RustFS et effectuez des opérations objet de base depuis Python avec des clients synchrones ou asynchrones.
+      - [JuiceFS](/fr/developer/integration/others/juicefs): Build a POSIX filesystem on RustFS with JuiceFS S3 object storage.
+      - [Nextcloud](/fr/developer/integration/others/nextcloud): Use RustFS as S3 external storage for Nextcloud files.
+      - [rclone](/fr/developer/integration/others/rclone): Sync, mount, and serve RustFS buckets with rclone over its S3-compatible API.
+      - [tusd](/fr/developer/integration/others/tusd): Receive resumable uploads into RustFS with the tusd server's S3 backend.
+    - Registre
+      - [Registre](/fr/developer/integration/registry): Connectez les registries de conteneurs à RustFS via des interfaces de stockage objet compatibles S3.
+      - [Harbor](/fr/developer/integration/registry/harbor): Stockez les images de conteneurs poussées vers Harbor dans le stockage objet RustFS via le pilote de stockage S3 de la registry, déployés avec Docker Compose.
+      - [Docker Registry](/fr/developer/integration/registry/docker-registry): Store container images from Docker Registry in RustFS.
+    - DevOps
+      - [DevOps](/fr/developer/integration/devops): Connectez les plateformes DevOps et l'outillage d'infrastructure à RustFS via des interfaces de stockage objet compatibles S3.
+      - [Elasticsearch](/fr/developer/integration/devops/elasticsearch): Use RustFS as the S3 snapshot repository for Elasticsearch indices, deployed with Docker Compose.
+      - [OpenSearch](/fr/developer/integration/devops/opensearch): Snapshot OpenSearch indices to RustFS with the repository-s3 plugin.
+      - [Gitea](/fr/developer/integration/devops/gitea): Run Gitea with RustFS as the S3 storage backend for LFS objects and attachments, deployed with Docker Compose.
+      - [Jenkins](/fr/developer/integration/devops/jenkins): Store Jenkins build artifacts in RustFS with the Artifact Manager on S3 plugin.
+      - [Terraform](/fr/developer/integration/devops/terraform): Store Terraform state in RustFS object storage with the S3 backend, including state locking.
+  - [RustFS Open Source License](/fr/developer/license): RustFS is released under the Apache 2.0 license.
+- Référence
+  - [Reference](/fr/reference): Look up RustFS configuration variables and command-line options.
+  - [Environment Variables](/fr/reference/environment-variables): Reference for the environment variables that configure the RustFS server, console, TLS, KMS, observability, scanner, healing, storage classes, credentials, and event targets.
+  - [CLI Reference](/fr/reference/cli): Reference for the rustfs subcommands, server flags, environment variable equivalents, and volume path syntax.
+  - [Matrice de compatibilité S3](/fr/reference/s3-compatibility): Consultez les comportements Amazon S3 testés et volontairement exclus du contrôle de compatibilité RustFS actuel.
+
+# Docs
+
+- インストール
+  - [Installation](/ja/installation): Choose the right RustFS deployment path: local trial, single-node or multi-node production, containers, and Kubernetes.
+  - 要件
+    - [トポロジーの選択](/ja/installation#deployment-mode-comparison)
+    - [EC Configuration](/ja/installation/requirement/ec-configuration): Plan and configure RustFS erasure-set size and parity before deploying storage pools.
+    - [Disk Preparation](/ja/installation/requirement/disk-preparation): Identify, format, mount, and verify dedicated data disks before installing RustFS on Linux.
+    - チェックリスト
+      - [Checklist](/ja/installation/requirement/checklists): Pre-installation checklists.
+      - [ハードウェアチェックリスト](/ja/installation/requirement/checklists/hardware-checklists)
+      - [ハードウェアの選定](/ja/installation/requirement/checklists/hardware-selection)
+      - [ネットワークチェックリスト](/ja/installation/requirement/checklists/network-checklists)
+      - [ソフトウェアチェックリスト](/ja/installation/requirement/checklists/software-checklists)
+      - [セキュリティチェックリスト](/ja/installation/requirement/checklists/security-checklists)
+  - Linux
+    - [Installing RustFS on Linux](/ja/installation/linux): Choose a Linux deployment mode — SNSD, SNMD, or MNMD — and install RustFS on one or more servers.
+    - [クイックスタート](/ja/installation/linux/quick-start)
+    - [前提条件とサービスのセットアップ](/ja/installation/linux/prerequisites-and-service)
+    - [シングルノード・シングルディスク（SNSD）](/ja/installation/linux/single-node-single-disk)
+    - [シングルノード・マルチディスク（SNMD）](/ja/installation/linux/single-node-multiple-disk)
+    - [マルチノード・マルチディスク（MNMD）](/ja/installation/linux/multiple-node-multiple-disk)
+  - コンテナ
+    - [Container](/ja/installation/container): Run the official RustFS container image with Docker or Podman.
+    - [Docker](/ja/installation/container/docker): Run RustFS with Docker: single-node setup, host-directory permissions, Docker Compose, TLS, and multi-node deployment.
+    - [Podman](/ja/installation/container/podman): Run a single-node RustFS instance with Podman and persistent container storage.
+  - クラウドネイティブ
+    - [Kubernetes Installation (Helm)](/ja/installation/cloud-native): Deploy RustFS on Kubernetes with the official Helm chart: standalone or distributed mode, storage sizing, probes, production hardening, and server-pool expansion.
+    - Helm チャート
+      - [Overview](/ja/installation/cloud-native/helm-chart): Understand how the RustFS Helm chart deploys standalone and distributed clusters on Kubernetes.
+      - [Install](/ja/installation/cloud-native/helm-chart/installation): Install standalone or distributed RustFS on Kubernetes with the official Helm chart.
+      - [mTLS](/ja/installation/cloud-native/helm-chart/mtls): Configure mutual TLS between RustFS Pods deployed by the Helm chart.
+      - [cert-manager](/ja/installation/cloud-native/helm-chart/cert-manager): Use cert-manager to issue and renew TLS certificates for a RustFS Helm deployment.
+    - Operator
+      - [Overview](/ja/installation/cloud-native/operator): Understand how RustFS Operator manages RustFS clusters on Kubernetes.
+      - [Install](/ja/installation/cloud-native/operator/installation): Prepare Kubernetes, install RustFS Operator, and access its Console securely.
+      - [Multi-Tenant](/ja/installation/cloud-native/operator/tenant): Create isolated RustFS Tenants and access their S3 API and Console services.
+      - [Pool Expansion](/ja/installation/cloud-native/operator/pool-expansion): Add storage capacity to a RustFS Tenant by appending a storage pool.
+      - [KMS Integration](/ja/installation/cloud-native/operator/kms): Configure local or HashiCorp Vault key management for a RustFS Tenant through the Operator encryption API.
+  - [Windows](/ja/installation/windows)
+  - [macOS](/ja/installation/macos)
+- 管理
+  - [Administration](/ja/administration): Administer RustFS data, access protocols, and browser-based management.
+  - [コンソール](/ja/administration/console)
+  - データ管理
+    - オブジェクト
+      - [Object Creation](/ja/administration/data/object/creation): Create objects using the RustFS UI, rc, or the S3 API.
+      - [Object Deletion](/ja/administration/data/object/deletion): Delete objects using the RustFS UI, rc, or the S3 API.
+      - [Object Lock](/ja/administration/data/object/object-lock): Protect versioned objects from deletion with retention periods and legal holds.
+      - [Versioning](/ja/administration/data/object/versioning): Enable bucket versioning, recover earlier object versions, and manage delete markers with rc and the Console.
+      - [Multipart Upload](/ja/administration/data/object/multipart-upload): Upload large objects in parts, monitor Console upload tasks, and verify completed objects with rc.
+      - [Object Scanning](/ja/administration/data/object/scanner): Guide to the RustFS object scanner, including design, implementation, and monitoring.
+    - バケット
+      - [RustFS Bucket Creation](/ja/administration/data/bucket/creation): Create buckets using the RustFS UI, rc, or the S3 API.
+      - [RustFS Bucket Deletion](/ja/administration/data/bucket/deletion): Delete buckets using the RustFS UI, rc, or the S3 API.
+      - [Bucket Quota](/ja/administration/data/bucket/quota): Configure, inspect, and verify hard storage quotas for individual RustFS buckets.
+      - [Bucket Replication](/ja/administration/data/bucket/replication): Configure, validate, and monitor asynchronous replication between versioned RustFS buckets.
+      - [Bucket Policy](/ja/administration/data/bucket/policy): Create, apply, inspect, and verify RustFS bucket policies with the S3 API.
+    - [S3 Tables](/ja/administration/data/s3-tables): RustFS のテーブルバケットを有効にし、Iceberg クライアントを組み込み REST カタログに接続します。
+    - [Tiered Storage](/ja/administration/data/tiered-storage): Configure lifecycle-driven object transitions from RustFS to a remote storage tier.
+    - [Lifecycle Management](/ja/administration/data/lifecycle-management): Configure, inspect, and maintain RustFS object lifecycle rules with the rc command-line client.
+  - 対応プロトコル
+    - [S3](/ja/administration/protocols/s3): Configure and use the RustFS S3-compatible API with AWS CLI, AWS SDKs, and other S3 clients.
+    - [WebDAV](/ja/administration/protocols/webdav): Configure the RustFS WebDAV gateway and access buckets and objects with WebDAV clients.
+    - [FTP(S)](/ja/administration/protocols/ftps): Configure the RustFS FTP or FTPS gateway and manage buckets and objects with FTP clients.
+    - [SFTP](/ja/administration/protocols/sftp): Build, configure, and use the RustFS SFTP gateway to access buckets and objects with SFTP clients.
+    - [OpenStack Swift API](/ja/administration/protocols/swift): オプションの Swift API を有効にして RustFS をビルドし、OpenStack Keystone 認証に接続します。
+    - [MCP サーバー](/ja/developer/mcp)
+  - CORS Configuration
+    - [CORS Configuration](/ja/administration/cors): Configure allowed browser origins for the RustFS S3 API and Console.
+  - [仮想ホスト形式のアクセス](/ja/integration/virtual)
+- セキュリティとコンプライアンス
+  - [Security & Compliance](/ja/security-compliance): Configure identity, encryption, transport security, audit logging, and credentials for RustFS.
+  - IAM
+    - [RustFS IAM Management](/ja/security-compliance/iam): Overview of RustFS Identity and Access Management (IAM): identity types, policy attachment, and policy evaluation semantics.
+    - [ユーザー、グループ、ポリシー](/ja/security-compliance/iam/policies)
+    - [サービスアカウントと STS](/ja/security-compliance/iam/sts)
+    - [アクセスキー](/ja/security-compliance/iam/access-token)
+  - データ暗号化
+    - [Data Encryption](/ja/security-compliance/encryption): Find the verified RustFS server-side encryption and key management references.
+    - [SSE-S3](/ja/security-compliance/encryption/sse-s): Configure server-managed SSE-S3 encryption for RustFS buckets and object writes.
+    - [SSE-C](/ja/security-compliance/encryption/sse-c): Use customer-provided AES-256 keys for RustFS object encryption and decryption.
+    - [SSE-KMS](/ja/security-compliance/encryption/kms): Configure SSE-KMS with a local or HashiCorp Vault KMS backend for RustFS.
+  - OIDC
+    - [OIDC](/ja/security-compliance/oidc): Understand how RustFS uses OpenID Connect providers for Console single sign-on.
+    - [Keycloak](/ja/security-compliance/oidc/keycloak): Configure Keycloak as an OpenID Connect identity provider for RustFS Console single sign-on.
+    - [GitLab](/ja/security-compliance/oidc/gitlab): Configure GitLab as an OpenID Connect identity provider for RustFS Console single sign-on.
+  - [TLS の設定](/ja/integration/tls-configured)
+  - [Audit Targets](/ja/security-compliance/audit-logs): Configure RustFS audit targets and deliver request-level audit records to external systems.
+  - [認証情報の管理](/ja/operations/credentials)
+- 運用と可観測性
+  - [Operations & Observability](/ja/operations): Operate, monitor, scale, upgrade, and troubleshoot RustFS deployments.
+  - [CLI Client (rc)](/ja/operations/rc): Install the RustFS command-line client and use it to connect to and inspect a RustFS cluster.
+  - アップグレード
+    - [Upgrade](/ja/operations/upgrade): Plan and perform RustFS upgrades while preserving cluster availability.
+    - [バイナリ](/ja/operations/upgrade/binary)
+    - [コンテナ](/ja/operations/upgrade/container)
+    - [Kubernetes](/ja/operations/upgrade/kubernetes)
+  - スケーリング
+    - [Scaling](/ja/operations/scaling): Expand, rebalance, and retire RustFS storage pools.
+    - [Pool Expansion](/ja/operations/scaling/storage-pool-expansion): Add a storage pool to a RustFS cluster and verify the expanded topology through the Console or rc.
+    - [Rebalancing](/ja/operations/scaling/data-rebalancing): Redistribute existing objects across active RustFS storage pools through the Console or rc.
+    - [Pool Decommission](/ja/operations/scaling/storage-pool-decommission): Drain and retire a RustFS storage pool through the Console or rc, then verify that its data was relocated.
+  - 高可用性
+    - [High Availability](/ja/operations/high-availability): Review RustFS site replication and node recovery guidance.
+    - [Site Replication](/ja/operations/high-availability/site-replication): Configure and operate multi-site RustFS replication with the rc command-line client.
+    - [Node Healing](/ja/operations/high-availability/node-healing): Recover failed RustFS nodes and disks, monitor automatic healing, and run bounded manual heal tasks with rc.
+  - [Cluster Lifecycle Operations](/ja/operations/cluster-lifecycle): Plan, start, expand, rebalance, decommission, heal, and restart erasure-coded RustFS clusters with verified quorum and storage-class behavior.
+  - [Observability](/ja/operations/observability): This article explains RustFS telemetry exports, monitoring integrations, metric names and labels, recommended alerts, and log collection.
+  - [Status Check](/ja/operations/status-check): Check RustFS network access, health endpoints, cluster status, and storage capacity.
+  - [Event Notifications](/ja/operations/event-notifications): Configure RustFS bucket event notifications and deliver filtered object events to external targets.
+- トラブルシューティング
+  - [Troubleshooting](/ja/troubleshooting): Diagnose and resolve RustFS issues.
+  - [Hard Drive Failures](/ja/troubleshooting/driver): RustFS ensures read/write access can still be provided when some disks fail through mechanisms similar to erasure coding, and automatically heals data after replacing disks.
+  - [Node Failures](/ja/troubleshooting/node): Complete steps for handling node failures in RustFS clusters. Mainly includes: replacement node hardware preparation, configuration updates, service deployment, rejoining the cluster, data healing, and subsequent checks and best practices.
+- 開発者向け
+  - [Developer](/ja/developer): Integrate applications with RustFS by using STS, MCP, SDKs, and the S3-compatible API.
+  - SDK
+    - [RustFS SDK Overview](/ja/developer/sdk): Overview of supported S3 SDKs for RustFS.
+    - [Java](/ja/developer/sdk/java)
+    - [Python](/ja/developer/sdk/python)
+    - [Rust](/ja/developer/sdk/rust)
+    - [JavaScript](/ja/developer/sdk/javascript)
+    - [TypeScript](/ja/developer/sdk/typescript)
+    - [Golang](/ja/developer/sdk/go)
+    - [その他の SDK](/ja/developer/sdk/other)
+  - Integration
+    - [Integration](/ja/developer/integration): RustFS をリバースプロキシ、バックアップツール、データ分析システム、AI とクラウドネイティブプラットフォーム、オブザーバビリティプラットフォーム、コンテナレジストリ、DevOps ツールと連携させます。
+    - リバースプロキシ
+      - [Reverse Proxy](/ja/developer/integration/reverse-proxy): Choose and configure a reverse proxy for the RustFS S3 API and Console.
+      - [Nginx](/ja/developer/integration/reverse-proxy/nginx): Deploy RustFS behind Nginx with separate HTTPS endpoints for the S3 API and Console.
+      - [Traefik](/ja/developer/integration/reverse-proxy/traefik): Deploy RustFS behind Traefik with automatic TLS for separate S3 API and Console hostnames.
+      - [Caddy](/ja/developer/integration/reverse-proxy/caddy): Deploy RustFS behind Caddy with automatic HTTPS for separate S3 API and Console hostnames.
+      - [Envoy](/ja/developer/integration/reverse-proxy/envoy): Deploy RustFS behind Envoy with TLS-terminated routes for the S3 API and Console.
+      - [HAProxy](/ja/developer/integration/reverse-proxy/haproxy): Deploy RustFS behind HAProxy with separate HTTPS routes for the S3 API and Console.
+      - [Apache HTTP Server](/ja/developer/integration/reverse-proxy/httpd): Deploy RustFS behind Apache HTTP Server with TLS termination for separate S3 API and Console hostnames.
+    - バックアップ
+      - [バックアップ](/ja/developer/integration/backup): S3 互換のオブジェクトストレージ経由でバックアップツールを RustFS に接続します。
+      - [Kopia](/ja/developer/integration/backup/kopia): Back up files to RustFS with Kopia's S3 repository backend.
+      - [Longhorn](/ja/developer/integration/backup/longhorn): Configure Longhorn to store Kubernetes volume backups in RustFS through its S3 backup target.
+      - [Restic](/ja/developer/integration/backup/restic): Restic でローカルデータを RustFS にバックアップし、S3 互換リポジトリからスナップショットを復元します。
+      - [Velero](/ja/developer/integration/backup/velero): Back up Kubernetes cluster resources to RustFS with Velero's AWS object store provider.
+    - データベース
+      - [Database](/ja/developer/integration/database): Connect databases to RustFS through S3-compatible object storage interfaces.
+      - [ClickHouse](/ja/developer/integration/database/clickhouse): Run ClickHouse with an S3 disk backed by RustFS for MergeTree table data.
+      - [Apache Doris](/ja/developer/integration/database/doris): Back up Apache Doris tables to RustFS through an S3 repository and restore them.
+      - [DuckDB](/ja/developer/integration/database/duckdb): DuckDB と httpfs 拡張機能を使って RustFS オブジェクトストレージ内の Parquet ファイルを照会・書き込みします。Docker Compose でデプロイします。
+      - [InfluxDB](/ja/developer/integration/database/influxdb): S3 オブジェクトストアとして RustFS を使って InfluxDB 3 Core を実行します。Docker Compose でデプロイします。
+      - [Databend](/ja/developer/integration/database/databend): Run Databend with RustFS as the S3-compatible storage backend.
+      - [LanceDB](/ja/developer/integration/database/lancedb): Store and query LanceDB vector tables directly on RustFS.
+      - [Milvus](/ja/developer/integration/database/milvus): Run Milvus with RustFS as its S3-compatible object storage backend using Docker Compose.
+      - [Trino](/ja/developer/integration/database/trino): hive コネクタのファイルメタストアとネイティブ S3 ファイルシステムを使って、RustFS オブジェクトストレージ内の CSV・Parquet データを Trino で照会します。
+      - [Vitess](/ja/developer/integration/database/vitess): Back up Vitess to RustFS through the S3 backup storage implementation.
+    - ビッグデータ
+      - [データ分析](/ja/developer/integration/big-data): Connect big data systems to RustFS through S3-compatible object storage interfaces.
+      - [Airflow](/ja/developer/integration/big-data/airflow): Move data between Airflow DAGs and RustFS with the Amazon S3 provider.
+      - [DolphinScheduler](/ja/developer/integration/big-data/dolphinscheduler): Store DolphinScheduler resources on RustFS over S3.
+      - [Delta Lake](/ja/developer/integration/big-data/delta-lake): Write and read Delta tables on RustFS with delta-rs.
+      - [Apache Flink](/ja/developer/integration/big-data/flink): RustFS オブジェクトストレージ内の CSV データを Apache Flink とその S3 ファイルシステムプラグインで読み書きします。
+      - [Hive](/ja/developer/integration/big-data/hive): Store Hive table data on RustFS over S3A.
+      - [Apache Hudi](/ja/developer/integration/big-data/hudi): Write Apache Hudi tables to RustFS through Spark and the s3a connector.
+      - [Paimon](/ja/developer/integration/big-data/paimon): Run Paimon lakehouse tables on RustFS with Spark.
+      - [Apache Iceberg](/ja/developer/integration/big-data/iceberg): Run Apache Iceberg with Spark, a REST catalog, and RustFS object storage using Docker Compose.
+      - [Kafka](/ja/developer/integration/big-data/kafka): Offload Kafka topic data to RustFS with the Kafka Connect S3 sink connector.
+      - [AutoMQ](/ja/developer/integration/big-data/automq): Run AutoMQ with RustFS as the S3-backed log storage.
+      - [PyIceberg](/ja/developer/integration/big-data/pyiceberg): PyIceberg を使用して、RustFS S3 Tables の REST カタログ経由で Iceberg テーブルを作成し、読み書きします。
+      - [Apache Spark](/ja/developer/integration/big-data/spark): s3a コネクタ経由で、RustFS オブジェクトストレージ内の Parquet データを Apache Spark で読み書きします。
+      - [SeaTunnel](/ja/developer/integration/big-data/seatunnel): Move data between SeaTunnel and RustFS with the S3File connector.
+      - [Apache Zeppelin](/ja/developer/integration/big-data/zeppelin): Store Apache Zeppelin notebooks in RustFS through the S3 notebook repository.
+    - ストレージ
+      - [Storage](/ja/developer/integration/storage): Use RustFS as the S3 backend for storage systems and storage gateways.
+      - [lakeFS](/ja/developer/integration/storage/lakefs): Run lakeFS with RustFS as its S3 blockstore for versioned data lakes.
+      - [OpenDAL](/ja/developer/integration/storage/opendal): Access RustFS objects from applications through the Apache OpenDAL data access layer.
+      - [ZeroFS](/ja/developer/integration/storage/zerofs): Serve a RustFS bucket as a POSIX filesystem over NFS with ZeroFS.
+      - [Alluxio](/ja/developer/integration/storage/alluxio): Cache RustFS buckets with Alluxio for faster reads.
+      - [SFTPGo](/ja/developer/integration/storage/sftpgo): Serve RustFS buckets over SFTP with SFTPGo.
+      - [s3fs](/ja/developer/integration/storage/s3fs): Mount a RustFS bucket as a local filesystem with s3fs-fuse.
+    - AI
+      - [AI](/ja/developer/integration/ai): S3 互換オブジェクトストレージインターフェースを経由して、AI プラットフォームを RustFS に接続します。
+      - [MLflow](/ja/developer/integration/ai/mlflow): Run MLflow with RustFS as the S3 artifact store for experiment tracking, deployed with Docker Compose.
+      - [Ray](/ja/developer/integration/ai/ray): Use Ray Data with RustFS as S3-compatible storage for dataset writes and reads.
+      - [vLLM](/ja/developer/integration/ai/vllm): Serve LLM inference with vLLM loading model weights stored in RustFS.
+    - クラウドネイティブ
+      - [クラウドネイティブ](/ja/developer/integration/cloud-native): Connect cloud native platforms to RustFS through S3-compatible object storage interfaces.
+      - [Cortex](/ja/developer/integration/cloud-native/cortex): Run Cortex with RustFS as the S3-compatible blocks, ruler, and alertmanager storage backend.
+      - [Flux](/ja/developer/integration/cloud-native/flux): Deliver Kubernetes manifests to Flux CD from RustFS through the Bucket source API.
+      - [celld](/ja/developer/integration/cloud-native/celld): Run denoland celld — self-hosted Durable Objects — with fleet state on RustFS.
+    - オブザーバビリティ
+      - [オブザーバビリティ](/ja/developer/integration/observability): S3 互換オブジェクトストレージインターフェースを経由して、オブザーバビリティプラットフォームを RustFS に接続します。
+      - [Fluentd](/ja/developer/integration/observability/fluentd): Ship Fluentd log events to RustFS with the S3 output plugin.
+      - [GreptimeDB](/ja/developer/integration/observability/greptimedb): Run GreptimeDB with RustFS as the S3-compatible object storage backend.
+      - [Loki](/ja/developer/integration/observability/loki): S3 オブジェクトストレージバックエンドとして RustFS を使って Grafana Loki を実行します。Docker Compose でデプロイします。
+      - [OpenObserve](/ja/developer/integration/observability/openobserve): Docker Compose で OpenObserve を S3 互換オブジェクトストレージバックエンドとして RustFS と共に実行し、ログの取り込み、保存、検索を検証します。
+      - [OpenTelemetry](/ja/developer/integration/observability/opentelemetry): Export OpenTelemetry Collector logs to RustFS with the AWS S3 exporter.
+      - [Tempo](/ja/developer/integration/observability/tempo): S3 トレースストレージバックエンドとして RustFS を使って Grafana Tempo を実行します。Docker Compose でデプロイします。
+      - [Thanos](/ja/developer/integration/observability/thanos): Run Thanos with RustFS as the S3 object storage backend for Prometheus blocks, deployed with Docker Compose.
+      - [VictoriaMetrics](/ja/developer/integration/observability/victoriametrics): Back up VictoriaMetrics snapshots to RustFS with vmbackup.
+    - その他
+      - [その他](/ja/developer/integration/others): その他の RustFS 統合。現在はコミュニティ主導の Python 用 capo SDK を扱います。
+      - [capo (Python)](/ja/developer/integration/others/capo): capo を RustFS に接続し、同期または非同期クライアントを使って Python から基本的なオブジェクト操作を行います。
+      - [JuiceFS](/ja/developer/integration/others/juicefs): Build a POSIX filesystem on RustFS with JuiceFS S3 object storage.
+      - [Nextcloud](/ja/developer/integration/others/nextcloud): Use RustFS as S3 external storage for Nextcloud files.
+      - [rclone](/ja/developer/integration/others/rclone): Sync, mount, and serve RustFS buckets with rclone over its S3-compatible API.
+      - [tusd](/ja/developer/integration/others/tusd): Receive resumable uploads into RustFS with the tusd server's S3 backend.
+    - コンテナレジストリ
+      - [コンテナレジストリ](/ja/developer/integration/registry): S3 互換オブジェクトストレージインターフェースを経由して、コンテナレジストリを RustFS に接続します。
+      - [Harbor](/ja/developer/integration/registry/harbor): Harbor への push でコンテナイメージを registry の S3 ストレージドライバー経由で RustFS オブジェクトストレージに保存します。Docker Compose でデプロイします。
+      - [Docker Registry](/ja/developer/integration/registry/docker-registry): Store container images from Docker Registry in RustFS.
+    - DevOps
+      - [DevOps](/ja/developer/integration/devops): S3 互換オブジェクトストレージインターフェースを経由して、DevOps プラットフォームとインフラストラクチャツールを RustFS に接続します。
+      - [Elasticsearch](/ja/developer/integration/devops/elasticsearch): Use RustFS as the S3 snapshot repository for Elasticsearch indices, deployed with Docker Compose.
+      - [OpenSearch](/ja/developer/integration/devops/opensearch): Snapshot OpenSearch indices to RustFS with the repository-s3 plugin.
+      - [Gitea](/ja/developer/integration/devops/gitea): Run Gitea with RustFS as the S3 storage backend for LFS objects and attachments, deployed with Docker Compose.
+      - [Jenkins](/ja/developer/integration/devops/jenkins): Store Jenkins build artifacts in RustFS with the Artifact Manager on S3 plugin.
+      - [Terraform](/ja/developer/integration/devops/terraform): Store Terraform state in RustFS object storage with the S3 backend, including state locking.
+  - [RustFS Open Source License](/ja/developer/license): RustFS is released under the Apache 2.0 license.
+- リファレンス
+  - [Reference](/ja/reference): Look up RustFS configuration variables and command-line options.
+  - [Environment Variables](/ja/reference/environment-variables): Reference for the environment variables that configure the RustFS server, console, TLS, KMS, observability, scanner, healing, storage classes, credentials, and event targets.
+  - [CLI Reference](/ja/reference/cli): Reference for the rustfs subcommands, server flags, environment variable equivalents, and volume path syntax.
+  - [S3 互換性マトリックス](/ja/reference/s3-compatibility): 現在の RustFS 互換性ゲートでテスト済みおよび意図的に除外されている Amazon S3 の動作を確認します。

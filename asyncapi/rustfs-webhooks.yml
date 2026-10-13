@@ -1,0 +1,20 @@
+name: RustFS Bucket Event Notifications
+type: Webhooks
+generated: '2026-10-14'
+method: searched
+source: https://docs.rustfs.com/en/operations/event-notifications
+description: RustFS delivers S3 bucket events to configured notification targets (webhook, Kafka, MQTT, MySQL, PostgreSQL, NATS, Redis, AMQP, Pulsar). Disabled by default; targets are configured by RUSTFS_NOTIFY_* environment variables and selected per bucket by a bucket notification configuration.
+delivery:
+  auth: Bearer token sent in the Authorization header (RUSTFS_NOTIFY_WEBHOOK_AUTH_TOKEN_<TARGET>)
+  mtls: optional client certificate, key and CA
+  queue: on-disk queue directory and queue limit for queued deliveries
+events:
+- {name: 's3:ObjectCreated:Put', category: Object creation}
+- {name: 's3:ObjectCreated:Copy', category: Object creation}
+- {name: 's3:ObjectCreated:CompleteMultipartUpload', category: Object creation}
+- {name: 's3:ObjectRemoved:Delete', category: Object removal}
+- {name: 's3:ObjectRemoved:DeleteMarkerCreated', category: Object removal}
+- {name: 's3:ObjectAccessed:Get', category: Object access}
+- {name: 's3:ObjectAccessed:Head', category: Object access}
+- {name: 's3:ObjectTagging:Put', category: Object tagging}
+- {name: 's3:ObjectTagging:Delete', category: Object tagging}

@@ -1,0 +1,67 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/rustfs-openapi-generated.yml
+vocabulary:
+  name: RustFS Domain Vocabulary
+  description: 'Terms declared by RustFS''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-14'
+  terms:
+  - term: GetHealthResponse
+    definition: 'Object declared by the contract with fields: status.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml#/components/schemas/GetHealthResponse
+  - term: GetInstallRustfsShResponse
+    definition: 'Object declared by the contract with fields: script_content.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml#/components/schemas/GetInstallRustfsShResponse
+  - term: PostRustfsAdminV3IdpBuiltinPolicyPolicyidRequest
+    definition: 'Object declared by the contract with fields: policies, user, group.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml#/components/schemas/PostRustfsAdminV3IdpBuiltinPolicyPolicyidRequest
+  - term: GetRustfsAdminV3OidcProvidersResponse
+    definition: 'Object declared by the contract with fields: providers.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml#/components/schemas/GetRustfsAdminV3OidcProvidersResponse
+  - term: PostRustfsAdminV3RebalanceRebalanceidResponse
+    definition: 'Object declared by the contract with fields: id.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml#/components/schemas/PostRustfsAdminV3RebalanceRebalanceidResponse
+  - term: PostRustfsAdminV3V3IdRequest
+    definition: 'Object declared by the contract with fields: recursive, dryRun, remove, recreate, scanMode, updateParity, readRepair, pool, set.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml#/components/schemas/PostRustfsAdminV3V3IdRequest
+  - term: PutRustfsAdminV3V3IdRequest
+    definition: 'Object declared by the contract with fields: policy.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml#/components/schemas/PutRustfsAdminV3V3IdRequest
+  - term: Api
+    definition: 'Resource group in the contract; its operation GET /: GET /'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml
+  - term: Health
+    definition: 'Resource group in the contract; its operation GET /health: Liveness probe that checks if the server is running.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml
+  - term: Minio
+    definition: 'Resource group in the contract; its operation GET /minio/health/cluster/read: Cluster write/read health (additionally require
+      lock quorum)'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml
+  - term: Rustfs
+    definition: 'Resource group in the contract; its operation POST /rustfs/admin/v3/background-heal/status: Check status of background healing
+      operations.'
+    tags:
+    - Resource Group
+    source: openapi/_ae-authored/rustfs-openapi-generated.yml

@@ -1,0 +1,33 @@
+name: RustFS Packages
+generated: '2026-10-14'
+method: searched
+source: https://crates.io/api/v1/crates?q=rustfs
+packages:
+- name: rustfs
+  registry: crates.io
+  url: https://crates.io/crates/rustfs
+  language: Rust
+  official: true
+  version: 1.0.1
+  published: '2026-10-03'
+  repository: https://github.com/rustfs/rustfs
+  kind: server
+- name: rustfs-mcp
+  registry: crates.io
+  url: https://crates.io/crates/rustfs-mcp
+  language: Rust
+  official: true
+  version: 0.1.0
+  published: '2026-09-16'
+  repository: https://github.com/rustfs/mcp
+  kind: mcp-server
+- name: rustfs/tap/rc
+  registry: homebrew
+  url: https://github.com/rustfs/homebrew-tap
+  language: Rust
+  official: true
+  version: unknown
+  published: unknown
+  kind: cli
+  note: RustFS CLI client rc, per https://docs.rustfs.com/en/operations/rc
+notes: RustFS publishes no RustFS-specific client SDK; https://docs.rustfs.com/en/developer/sdk directs developers to standard Amazon S3 SDKs (Java, Python, Rust, JavaScript, TypeScript, Go).

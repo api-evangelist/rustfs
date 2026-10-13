@@ -1,0 +1,19 @@
+name: RustFS CLI (rc)
+generated: '2026-10-14'
+method: searched
+source: https://docs.rustfs.com/en/operations/rc
+repository: https://github.com/rustfs/cli
+install:
+- method: binary
+  text: Download a release from https://github.com/rustfs/cli/releases and run sudo install -m 0755 rc /usr/local/bin/rc
+- method: homebrew
+  text: brew install rustfs/tap/rc
+- method: scoop
+  text: scoop install rustfs/rc
+commands:
+- group: alias
+  examples: ['rc alias set local http://localhost:9000 <your-access-key> <your-secret-key>', 'rc alias list']
+- group: health
+  examples: ['rc ping local', 'rc ready local']
+- group: admin
+  examples: ['rc admin info cluster local', 'rc admin pool list local']

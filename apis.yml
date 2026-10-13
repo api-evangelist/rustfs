@@ -1,23 +1,115 @@
 aid: rustfs
 name: RustFS
-description: 'RustFS is a company surfaced via the API Evangelist harvest backlog (source: market-gap:object-storage)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'RustFS is an Apache-2.0, Rust-built, S3-compatible distributed object storage system. It is self-hosted: each deployment serves the S3 API (plus admin API and health endpoints) on port 9000 and an embedded web console on port 9001, with an optional OpenStack Swift API, STS/OIDC identity, bucket event notifications, a Kubernetes operator and an MCP server.'
 url: https://raw.githubusercontent.com/api-evangelist/rustfs/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:market-gap:object-storage
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enriched
 specificationVersion: '0.20'
 created: '2026-10-13'
 modified: '2026-10-13'
 tags:
 - Company
-apis: []
+- Object Storage
+- S3
+- Open Source
+- Storage
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Plans
+  url: plans/rustfs-plans-pricing.yml
+- type: Spectral
+  url: rules/rustfs-rules.yml
+- type: JSONLD
+  url: json-ld/rustfs-context.jsonld
+- type: Vocabulary
+  url: vocabulary/rustfs-vocabulary.yml
+- type: Webhooks
+  url: asyncapi/rustfs-webhooks.yml
+- type: DataModel
+  url: data-model/rustfs-data-model.yml
+- type: CLI
+  url: cli/rustfs-cli.yml
+- type: ChangeLog
+  url: changelog/rustfs-changelog.yml
+- type: Authentication
+  url: authentication/rustfs-authentication.yml
+- type: Conformance
+  url: conformance/rustfs-conformance.yml
+- type: LLMsTxt
+  url: llms/rustfs-llms.txt
+- type: MCPServer
+  url: mcp/rustfs-mcp.yml
+- type: Hosts
+  url: hosts/rustfs-hosts.yml
+- type: IntegrationEdges
+  url: integrations/rustfs-integration-edges.yml
+- type: Vendors
+  url: vendors/rustfs-vendors.yml
+- type: SDKs
+  url: packages/rustfs-packages.yml
+- type: Packages
+  url: packages/rustfs-packages.yml
+- type: GettingStarted
+  url: https://docs.rustfs.com/en/installation/linux/quick-start
+- type: DomainSecurity
+  url: security/rustfs-domain-security.yml
 - type: Website
   url: https://rustfs.com
+- type: Documentation
+  url: https://docs.rustfs.com/
+- type: GitHubOrganization
+  url: https://github.com/rustfs
+- type: GitHubRepository
+  url: https://github.com/rustfs/rustfs
+- type: Blog
+  url: https://rustfs.com/blog
+- type: Pricing
+  url: https://rustfs.com/pricing
+- type: PrivacyPolicy
+  url: https://rustfs.com/privacy-policy
+apis:
+- aid: rustfs:rustfs-api
+  name: RustFS API
+  description: RustFS S3-compatible object storage API, admin API (/rustfs/admin/v3, v4), STS and health endpoints, served by each self-hosted deployment on port 9000. Contract generated from the documentation by API Evangelist (2026-10-13), 26 operations; not the provider's own document. The S3 surface is Amazon S3-compatible (see https://docs.rustfs.com/en/reference/s3-compatibility).
+  humanURL: https://docs.rustfs.com/en/developer
+  baseURL: http://localhost:9000
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/rustfs-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-v3-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-idp-builtin-policy-policyid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-put-rustfs-admin-v3-v3-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-rebalance-rebalanceid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-get-rustfs-admin-v3-oidc-providers-response-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-get-health-response-schema.json
+  tags:
+  - Object Storage
+  - S3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  method: derived
+  generated: '2026-10-14'
+  generator: derive-coverage.py (pre-flight evidence)
+  detail: the company publishes no developer documentation host and no machine-readable contract on its own domain
+  evidence:
+  - url: https://rustfs.com
+    status: 200
+x-enrichment:
+  date: '2026-10-13'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v5

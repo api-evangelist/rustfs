@@ -1,0 +1,19 @@
+name: RustFS Plans
+generated: '2026-10-14'
+method: searched
+source: https://rustfs.com/pricing
+audience: self-hosted
+pricing_basis: open-source-plus-support
+plans:
+- name: Personal
+  price: 0
+  price_text: Free
+  description: Use RustFS under Apache 2.0 for development, testing, and production deployments you operate yourself.
+  features: [Apache 2.0 license, S3-compatible object storage, 'Server binaries, Docker, and Kubernetes paths', Community issue tracking on GitHub]
+  limits: []
+- name: Enterprise
+  price: Contact sales
+  price_text: Talk to expert
+  description: For teams moving from evaluation to production and needing topology, migration, and operations planning.
+  features: [Migration planning, Capacity and topology review, Operational readiness guidance, Enterprise requirements discovery]
+  limits: []

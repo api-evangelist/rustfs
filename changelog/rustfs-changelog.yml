@@ -1,0 +1,12 @@
+name: RustFS Releases
+generated: '2026-10-14'
+method: searched
+source: https://github.com/rustfs/rustfs/releases
+scheme: semver
+current_version: 1.0.1
+entries:
+- {version: 1.0.1, date: '2026-10-03', breaking: false, highlights: [GitHub release 1.0.1]}
+- {version: 1.0.0, date: '2026-09-16', breaking: false, highlights: [GitHub release 1.0.0 (follows the 1.0.0-rc pre-releases)]}
+- {version: 1.0.0-rc.6, date: '2026-09-11', breaking: false, highlights: [Pre-release]}
+- {version: 1.0.0-rc.5, date: '2026-09-02', breaking: false, highlights: [Pre-release]}
+- {version: 1.0.0-rc.4, date: '2026-08-28', breaking: false, highlights: [Pre-release]}

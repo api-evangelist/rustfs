@@ -1,0 +1,26 @@
+name: RustFS MCP Server
+generated: '2026-10-14'
+method: searched
+source: https://github.com/rustfs/mcp
+docs: https://docs.rustfs.com/en/developer/mcp
+status: official
+deployment:
+  mode: local-stdio
+  install: cargo build --release -p rustfs-mcp
+  package: https://crates.io/crates/rustfs-mcp
+  auth: api-key
+  verified: searched
+  note: First-party Rust MCP server (repo rustfs/mcp, crate rustfs-mcp 0.1.0) run locally over stdio against any S3-compatible endpoint using AWS-style access key / secret key. No hosted remote endpoint is published. The docs page warns the crate moved out of the rustfs/rustfs main branch.
+tools:
+- name: list_buckets
+  description: List all S3 buckets accessible with the configured credentials.
+- name: list_objects
+  description: List objects in an S3 bucket with optional prefix filtering.
+- name: upload_file
+  description: Upload a local file to S3 with automatic MIME type detection.
+- name: get_object
+  description: 'Retrieve an object from S3 with two operation modes: read content directly or download to a file.'
+- name: create_bucket
+  description: Create a new S3 bucket with the specified name.
+- name: delete_bucket
+  description: Delete an existing S3 bucket with the specified name; fails if the bucket is not empty.
