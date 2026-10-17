@@ -74,15 +74,16 @@ common:
 - type: PrivacyPolicy
   url: https://rustfs.com/privacy-policy
 apis:
-- aid: rustfs:rustfs-api
-  name: RustFS API
-  description: RustFS S3-compatible object storage API, admin API (/rustfs/admin/v3, v4), STS and health endpoints, served by each self-hosted deployment on port 9000. Contract generated from the documentation by API Evangelist (2026-10-13), 26 operations; not the provider's own document. The S3 surface is Amazon S3-compatible (see https://docs.rustfs.com/en/reference/s3-compatibility).
+- aid: rustfs:rustfs-health-api
+  name: RustFS Health API
+  description: The Health API from RustFS — 2 operation(s) for health.
   humanURL: https://docs.rustfs.com/en/developer
   baseURL: http://localhost:9000
+  tags:
+  - Health
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/rustfs-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/rustfs-health-api-openapi.yml
   - type: JSONSchema
     url: json-schema/rustfs-post-rustfs-admin-v3-v3-id-request-schema.json
   - type: JSONSchema
@@ -95,9 +96,72 @@ apis:
     url: json-schema/rustfs-get-rustfs-admin-v3-oidc-providers-response-schema.json
   - type: JSONSchema
     url: json-schema/rustfs-get-health-response-schema.json
+- aid: rustfs:rustfs-minio-api
+  name: RustFS Minio API
+  description: The Minio API from RustFS — 2 operation(s) for minio.
+  humanURL: https://docs.rustfs.com/en/developer
+  baseURL: http://localhost:9000
   tags:
-  - Object Storage
-  - S3
+  - Minio
+  properties:
+  - type: OpenAPI
+    url: openapi/rustfs-minio-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-v3-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-idp-builtin-policy-policyid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-put-rustfs-admin-v3-v3-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-rebalance-rebalanceid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-get-rustfs-admin-v3-oidc-providers-response-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-get-health-response-schema.json
+- aid: rustfs:rustfs-rustfs-api-api
+  name: RustFS RustFS API
+  description: The RustFS API API from RustFS — 3 operation(s) for rustfs api.
+  humanURL: https://docs.rustfs.com/en/developer
+  baseURL: http://localhost:9000
+  tags:
+  - RustFS API
+  properties:
+  - type: OpenAPI
+    url: openapi/rustfs-rustfs-api-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-v3-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-idp-builtin-policy-policyid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-put-rustfs-admin-v3-v3-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-rebalance-rebalanceid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-get-rustfs-admin-v3-oidc-providers-response-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-get-health-response-schema.json
+- aid: rustfs:rustfs-rustfs-api
+  name: RustFS Rustfs API
+  description: The Rustfs API from RustFS — 13 operation(s) for rustfs.
+  humanURL: https://docs.rustfs.com/en/developer
+  baseURL: http://localhost:9000
+  tags:
+  - Rustfs
+  properties:
+  - type: OpenAPI
+    url: openapi/rustfs-rustfs-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-v3-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-idp-builtin-policy-policyid-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-put-rustfs-admin-v3-v3-id-request-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-post-rustfs-admin-v3-rebalance-rebalanceid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-get-rustfs-admin-v3-oidc-providers-response-schema.json
+  - type: JSONSchema
+    url: json-schema/rustfs-get-health-response-schema.json
 x-coverage:
   state: none
   reason: no-developer-program

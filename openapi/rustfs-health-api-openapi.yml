@@ -1,0 +1,97 @@
+openapi: 3.2.0
+info:
+  title: RustFS Health API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 30 operation(s) read from 21 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; RustFS has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 8
+    documentation: 22
+    pages-with-code: 12
+    pages-read: 21
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.rustfs.com/en/operations/rc
+  - https://docs.rustfs.com/en/installation/linux/quick-start
+  - https://py.iceberg.apache.org/configuration
+  - https://docs.rustfs.com/en/installation/cloud-native
+  - https://docs.rustfs.com/en/administration/cors
+  - https://docs.rustfs.com/en/security-compliance/audit-logs
+  - https://docs.rustfs.com/en/operations/credentials
+  - https://docs.rustfs.com/en/operations/cluster-lifecycle
+  - https://docs.rustfs.com/en/operations/observability
+  - https://docs.rustfs.com/en/operations/status-check
+  - https://docs.rustfs.com/en/security-compliance/iam/sts
+  - https://docs.rustfs.com/en/developer/sdk/python
+  - https://docs.rustfs.com/en/developer/sdk/other
+  - https://docs.rustfs.com/en/installation/linux/prerequisites-and-service
+  - https://docs.rustfs.com/en/installation/container/docker
+  - https://docs.rustfs.com/en/installation/container/podman
+  - https://docs.rustfs.com/en/administration/data/s3-tables
+  - https://docs.rustfs.com/en/administration/data/bucket/creation
+  - https://docs.rustfs.com/en/administration/data/object/creation
+  - https://docs.rustfs.com/en/security-compliance/iam/policies
+  - https://docs.rustfs.com/en/security-compliance/oidc/keycloak
+  x-ownership: RustFS is self-hosted software; no RustFS-operated API host exists. Paths are from docs.rustfs.com pages (x-source per operation). Download/installer URLs and a Keycloak realm discovery URL the generator caught were removed as not RustFS API operations.
+servers:
+- url: '{scheme}://{host}:{port}'
+  description: 'Self-hosted RustFS deployment: S3 API, admin API and health endpoints on port 9000 (console on 9001), per https://docs.rustfs.com/en/operations/status-check'
+  variables:
+    scheme:
+      default: http
+      enum:
+      - http
+      - https
+    host:
+      default: localhost
+    port:
+      default: '9000'
+tags:
+- name: Health
+paths:
+  /health:
+    get:
+      operationId: get_health
+      tags:
+      - Health
+      summary: Liveness probe that checks if the server is running
+      x-source: https://docs.rustfs.com/en/installation/cloud-native
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetHealthResponse'
+      x-evidence:
+        kind: documentation
+  /health/{healthid}:
+    get:
+      operationId: get_health_healthid
+      tags:
+      - Health
+      summary: Liveness — returns 200 as long as the process is up
+      x-source: https://docs.rustfs.com/en/operations/status-check
+      parameters:
+      - name: healthid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at healthId
+components:
+  schemas:
+    GetHealthResponse:
+      type: object
+      properties:
+        status:
+          type: string

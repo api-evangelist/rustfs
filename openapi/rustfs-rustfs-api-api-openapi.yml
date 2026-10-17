@@ -1,0 +1,145 @@
+openapi: 3.2.0
+info:
+  title: RustFS API
+  version: '2026-10-13'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-13: 30 operation(s) read from 21 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; RustFS has published no machine-readable contract that the pipeline could find. Engine: anthropic.'
+  x-evidence-tiers:
+    code-example: 8
+    documentation: 22
+    pages-with-code: 12
+    pages-read: 21
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-13'
+  x-generator: generate-contract-from-docs.py
+  x-engine: anthropic
+  x-sources:
+  - https://docs.rustfs.com/en/operations/rc
+  - https://docs.rustfs.com/en/installation/linux/quick-start
+  - https://py.iceberg.apache.org/configuration
+  - https://docs.rustfs.com/en/installation/cloud-native
+  - https://docs.rustfs.com/en/administration/cors
+  - https://docs.rustfs.com/en/security-compliance/audit-logs
+  - https://docs.rustfs.com/en/operations/credentials
+  - https://docs.rustfs.com/en/operations/cluster-lifecycle
+  - https://docs.rustfs.com/en/operations/observability
+  - https://docs.rustfs.com/en/operations/status-check
+  - https://docs.rustfs.com/en/security-compliance/iam/sts
+  - https://docs.rustfs.com/en/developer/sdk/python
+  - https://docs.rustfs.com/en/developer/sdk/other
+  - https://docs.rustfs.com/en/installation/linux/prerequisites-and-service
+  - https://docs.rustfs.com/en/installation/container/docker
+  - https://docs.rustfs.com/en/installation/container/podman
+  - https://docs.rustfs.com/en/administration/data/s3-tables
+  - https://docs.rustfs.com/en/administration/data/bucket/creation
+  - https://docs.rustfs.com/en/administration/data/object/creation
+  - https://docs.rustfs.com/en/security-compliance/iam/policies
+  - https://docs.rustfs.com/en/security-compliance/oidc/keycloak
+  x-ownership: RustFS is self-hosted software; no RustFS-operated API host exists. Paths are from docs.rustfs.com pages (x-source per operation). Download/installer URLs and a Keycloak realm discovery URL the generator caught were removed as not RustFS API operations.
+servers:
+- url: '{scheme}://{host}:{port}'
+  description: 'Self-hosted RustFS deployment: S3 API, admin API and health endpoints on port 9000 (console on 9001), per https://docs.rustfs.com/en/operations/status-check'
+  variables:
+    scheme:
+      default: http
+      enum:
+      - http
+      - https
+    host:
+      default: localhost
+    port:
+      default: '9000'
+tags:
+- name: RustFS API
+paths:
+  /:
+    get:
+      operationId: get
+      tags:
+      - RustFS API
+      summary: GET /
+      x-source: https://docs.rustfs.com/en/administration/cors
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -i  -H \"Origin: https://app.example.com\"  http://localhost:9000/ \n Confirm that Access-Control-Allow-Origin contains the expected origin. Repeat the check with an unlisted origin and confirm that it is not allowed. \n Next steps Copy Anchor Link \n See the environment variable reference for the verified defaults and configuration formats. MCP Server Previous Page Virtual-Host Access Next Page O"
+    post:
+      operationId: post
+      tags:
+      - RustFS API
+      summary: POST /
+      x-source: https://docs.rustfs.com/en/security-compliance/iam/sts
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl -s -X POST \"https://rustfs.example.com/\"  --user \" $ACCESS_KEY : $SECRET_KEY \"  --aws-sigv4 \"aws:amz:us-east-1:s3\"  -d \"Action=AssumeRole\"  -d \"Version=2011-06-15\"  -d \"DurationSeconds=3600\" \n The response is an XML AssumeRoleResponse containing AccessKeyId , SecretAccessKey , SessionToken , and Expiration . Use all three values on subsequent S3 requests (the session token goes in X-Amz-Secur"
+  /{bucketname}:
+    put:
+      operationId: put_bucketname
+      tags:
+      - RustFS API
+      summary: Create buckets using the RustFS UI, rc, or the S3 API
+      x-source: https://docs.rustfs.com/en/administration/data/bucket/creation
+      parameters:
+      - name: bucketname
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /{bucketname}/{objectname}:
+    delete:
+      operationId: delete_bucketname_objectname
+      tags:
+      - RustFS API
+      summary: Delete objects using the S3 API
+      x-source: https://docs.rustfs.com/en/administration/data/object/creation
+      parameters:
+      - name: bucketname
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: objectname
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+    put:
+      operationId: put_bucketname_objectname
+      tags:
+      - RustFS API
+      summary: Upload a file via API
+      x-source: https://docs.rustfs.com/en/administration/data/object/creation
+      parameters:
+      - name: bucketname
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: objectname
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation

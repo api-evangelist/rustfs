@@ -1,0 +1,27 @@
+{
+  "provider": "rustfs",
+  "sources": [
+    "_ae-authored/rustfs-openapi-generated.yml"
+  ],
+  "outputs": [
+    "rustfs-health-api-openapi.yml",
+    "rustfs-minio-api-openapi.yml",
+    "rustfs-rustfs-api-api-openapi.yml",
+    "rustfs-rustfs-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "rustfs-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "rustfs-openapi-generated.yml: tagged paths GET / -> RustFS API",
+    "rustfs-openapi-generated.yml: tagged paths POST / -> RustFS API",
+    "rustfs-openapi-generated.yml: tagged paths PUT /{bucketname} -> RustFS API",
+    "rustfs-openapi-generated.yml: tagged paths DELETE /{bucketname}/{objectname} -> RustFS API",
+    "rustfs-openapi-generated.yml: tagged paths PUT /{bucketname}/{objectname} -> RustFS API",
+    "rustfs-openapi-generated.yml: declared missing tag: RustFS API",
+    "apis.yml register: written (+4 apis, 4 total)"
+  ],
+  "skipped": []
+}
