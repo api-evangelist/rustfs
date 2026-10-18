@@ -17,3 +17,23 @@ plans:
   description: For teams moving from evaluation to production and needing topology, migration, and operations planning.
   features: [Migration planning, Capacity and topology review, Operational readiness guidance, Enterprise requirements discovery]
   limits: []
+x-canonical:
+  generated: '2026-10-18'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  units: []
+  plans:
+  - name: Personal
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Enterprise
+    access: other
+    model: negotiated
+    model_how: derived
+    units: []
+    periods: []
